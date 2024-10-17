@@ -1,3 +1,11 @@
+# workflow
+1) create a branch based on your feature (ex. you are doing sign-up front end)
+    - create a branch called "your-name-sign-up-frontend"
+
+2) Once you merge the branch in, you can delete the branch to keep our version control mess free
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
