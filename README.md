@@ -2,9 +2,19 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Frontend 
 
-In the project directory, you can run:
+npm start in terminal to see and test frontend
+
+# Backend
+
+npm run dev in terminal to see and test backend. You'll need to do localhost:*insert Port number*
+
+Note: make sure that you add config.js from messages
+
+# Frontend available scripts
+
+In the frontend folder, you can run:
 
 ### `npm start`
 
@@ -39,32 +49,15 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+# Backend available scripts
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### `npm run start`
+This script runs the index.js file using Node.js. When you execute npm run start, Node.js directly starts the application by loading and executing index.js, which is usually the main entry point of the application.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Use case: Typically used to start the application in a production environment.
 
-### Code Splitting
+### `npm run dev`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This script runs the index.js file using nodemon, a tool that automatically restarts the Node.js application whenever file changes in the directory are detected.
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Use case: Commonly used during development, as it saves time by avoiding the need to manually restart the server every time code is modified.
