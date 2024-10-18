@@ -5,7 +5,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 # Contribution Workflow
 Here's a quick guide on how to get started.
 
-Either make a new branch or a fork of this repository. main is a protected branch, so you cannot push to it.
+Either make a new branch or a fork of this repository.
 Follow the instructions in "Development Setup" above. If you're on a fork, replace the URL with the fork's URL; if you're on a different branch, check it out using git checkout -b {branch_name}. 
 
 a. For branch naming, you can generally use {component}_{change} to keep track of which branch corresponds to which ticket! For example for implenting a slideshow, I would use slideshow_addingSlides. 
