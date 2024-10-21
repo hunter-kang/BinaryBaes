@@ -1,22 +1,30 @@
 import express from "express";
-import { PORT, mongoDBURL } from "./config.js";
-import mongoose, { mongo } from "mongoose";
-
 const app = express();
+import bodyParser from 'body-parser';
+import './models/db.js'; // Make sure this file is setting up models correctly
+import cors from 'cors';
+import authRouter from './routes/authRouter.js'
+import productRouter from './routes/productRouter.js'
 
-app.get('/', (request, response) => {
-    console.log(request);
-    return response.status(234).send('Welcome')
+import dotenv from 'dotenv'; // Only need this once
+dotenv.config(); // Load environment variables
+const PORT = process.env.PORT || 5555
+
+
+
+app.use(bodyParser.json()); 
+app.use(cors());
+app.use('/auth', authRouter)
+app.use('/products', productRouter)
+
+// Define routes
+app.get('/test', (request, response) => {
+    console.log(request); // Log the request for debugging
+    console.log("ATLAS_URI:", process.env.ATLAS_URI); // Log ATLAS_URI from environment
+    response.status(234).send('PONG'); // Send one response
 });
 
-mongoose
-    .connect(mongoDBURL)
-    .then(() => {
-        console.log("App connected to the database");
-        app.listen(PORT, () => {
-            console.log(`App is listening to port: ${PORT}`);
-        });
-    })
-    .catch((error) => {
-        console.log(error);
-    });
+
+app.listen(PORT, () => {
+    console.log(`Server is running on ${PORT}`);
+});
