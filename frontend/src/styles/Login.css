@@ -1,0 +1,26 @@
+.background-container {
+    display: flex;
+    background-color: #d9ead3ff;
+    width: 100wh;
+    height: 100vh;
+    flex-direction: row;
+    align-items: center;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.logo {
+    width: 260px;
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+.gif_login {
+    margin-right: 300px;
+    width: 700px;
+    height: 700px;
+}
