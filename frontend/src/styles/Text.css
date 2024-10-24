@@ -1,0 +1,39 @@
+.header{
+    font-family: 'Courier New';
+    color: #274e13;
+    font-size: 40.0px;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+}
+
+.sub-header{
+    font-family: 'Courier New';
+    color: #274e13;
+    font-size: 1.5e;
+    margin: 0px;
+    padding: 0px;
+}
+
+.small-text{
+    align-items: flex-start;
+    font-family: 'Courier New';
+    color: #595959;
+    font-size: 20.0px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.button-design{
+    font-family: 'Courier New';
+    background-color: #fff2ccff;
+    color: #595959;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;  
+    width: 10wh;
+    height: 10vh;
+    transition: background-color 0.3s ease; 
+    font-size: 40.0px
+
+}
