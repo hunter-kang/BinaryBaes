@@ -1,8 +1,58 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import "../styles/Login.css";
+import "../styles/Text.css";
+import gif_login from '../assets/login-design.gif';
+import logo from '../assets/logo-design.png';
 
 function Login() {
-    return <h1>Home</h1>;
+    const navigate = useNavigate();
+    const [username, setUsername] = useState(''); // For username
+    const [password, setPassword] = useState(''); // For password
+    const [data, setSaved] = useState ('')
+
+    const submitEvent = () => {
+        console.log('Button clicked', { username, password }); // Log input values
+        setSaved([username, password]);
+        navigate('/signup');
+    };
+
+    const handleChange = (event) => {
+        const { name, value } = event.target; // Destructure name and value
+        if (name === "username") {
+            setUsername(value); // Update username
+        } else if (name === "password") {
+            setPassword(value); // Update password
+        }
+    };
+
+    return (
+        <div className="background-container">
+            <img src={gif_login} className="gif_login" alt="yo mama" />
+            <div className="login-container">
+                <p className="header" style = {{marginTop: 0}}>Binary Baes:</p>
+                <img src={logo} className="logo" alt="logo design" />
+                <p className="small-text" style={{marginRight: 200}}>Username:</p>
+                <input 
+                    name="username"
+                    type="text"
+                    value={username}
+                    onChange={handleChange}
+                />
+                <p className="small-text" style={{marginTop: 30, marginRight: 200}} >Password:</p>
+                <input 
+                    name="password"
+                    type="password" // Change to "password" for security
+                    value={password}
+                    onChange={handleChange}
+                />
+                <button className = "button-design" onClick={submitEvent} style={{marginTop: 60}}>
+                    Submit
+                </button> {/* Standard HTML button */}
+            </div>
+        </div>
+    );
 }
 
 
