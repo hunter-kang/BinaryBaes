@@ -9,7 +9,7 @@ const signup = async (req, res) =>{
         const user = await UserModel.findOne({email});
         if(user){
             return res.status(409)
-            .json({message: 'User is already existm you can login', success: false})
+            .json({message: 'User is already exist you can login', success: false})
         }
         const userModel = new UserModel({firstname, lastname, email, password})
         userModel.password = await bcrypt.hash(password, 10)
@@ -49,7 +49,7 @@ const login = async (req, res) =>{
         )
         res.status(201)
             .json({
-                message : "Signup successful",
+                message : "Login successful",
                 success: true,
                 jwtToken,
                 email, 
