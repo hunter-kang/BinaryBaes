@@ -1,7 +1,7 @@
 .background-container {
     display: flex;
     background-color: #d9ead3ff;
-    width: 100wh;
+    width: 100vw;
     height: 100vh;
     flex-direction: row;
     align-items: center;
