@@ -1,0 +1,25 @@
+.signup-container {
+    display: flex;
+    background-color: #d9ead3ff;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    margin-right: 100px; 
+}
+
+.text-container {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-signup {
+    width: 300px;
+}

@@ -13,7 +13,9 @@ const PORT = process.env.PORT || 5555
 
 
 app.use(bodyParser.json()); 
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:3000'  // Adjust based on your frontend URL
+  }));
 app.use('/auth', authRouter)
 app.use('/products', productRouter)
 
