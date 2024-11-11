@@ -75,7 +75,7 @@ function Signup() {
       const result = await response.json();
       console.log(result);
       alert("User registered successfully!");
-      navigate("/login"); // Redirect after successful signup (optional)
+      navigate("/questionnaire"); // Redirect after successful signup (optional)
     } catch (err) {
       console.error("An error occurred:", err);
       alert("An error occurred. Please try again.");
