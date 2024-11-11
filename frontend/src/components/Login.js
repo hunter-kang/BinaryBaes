@@ -8,24 +8,55 @@ import logo from '../assets/logo-design.png';
 
 function Login() {
     const navigate = useNavigate();
-    const [username, setUsername] = useState(''); // For username
+    const [email, setEmail] = useState(''); // For username
     const [password, setPassword] = useState(''); // For password
-    const [data, setSaved] = useState ('')
+    const [error, setError] = useState(''); // Store any error messages
 
-    const submitEvent = () => {
-        console.log('Button clicked', { username, password }); // Log input values
-        setSaved([username, password]);
-        navigate('/signup');
-    };
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        if (name === "email") setEmail(value);
+        else if (name === "password") setPassword(value);
 
-    const handleChange = (event) => {
-        const { name, value } = event.target; // Destructure name and value
-        if (name === "username") {
-            setUsername(value); // Update username
-        } else if (name === "password") {
-            setPassword(value); // Update password
+      };
+
+    //backend connection 
+    const handleLogin = async (event) => {
+        event.preventDefault();
+      
+        if (!email || !password) {
+          setError("Required fields are missing");
+          alert("Required fields are missing");
+          return;
         }
-    };
+      
+      
+        try {
+          const url = "http://localhost:5555/auth/login";
+          const loginData = {
+            email,
+            password
+          }
+          const response = await fetch(url, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(loginData),
+          });
+          const result = await response.json();
+          const {success, message, jwtToken, name, error} = result;
+          if (success){
+            localStorage.setItem('token', jwtToken);
+            localStorage.setItem('loggedInUser', name);
+            setTimeout(() => {
+                navigate('/profile')
+            }, 1000)
+          }
+        } catch (err) {
+          console.error("An error occurred:", err);
+          alert("An error occurred. Please try again.");
+        }
+      };
 
     return (
         <div className="background-container">
@@ -33,11 +64,11 @@ function Login() {
             <div className="login-container">
                 <p className="header" style = {{marginTop: 0}}>Binary Baes:</p>
                 <img src={logo} className="logo" alt="logo design" />
-                <p className="small-text" style={{marginRight: 200}}>Username:</p>
+                <p className="small-text" style={{marginRight: 200}}>Email:</p>
                 <input 
-                    name="username"
+                    name="email"
                     type="text"
-                    value={username}
+                    value={email}
                     onChange={handleChange}
                 />
                 <p className="small-text" style={{marginTop: 30, marginRight: 200}} >Password:</p>
@@ -47,7 +78,7 @@ function Login() {
                     value={password}
                     onChange={handleChange}
                 />
-                <button className = "button-design" onClick={submitEvent} style={{marginTop: 60}}>
+                <button className = "button-design" onClick={handleLogin} style={{marginTop: 60}}>
                     Submit
                 </button> {/* Standard HTML button */}
             </div>
