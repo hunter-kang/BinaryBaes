@@ -31,7 +31,7 @@
     border: none;
     cursor: pointer;
     border-radius: 15px;  
-    width: 10wh;
+    /* width: 10vw; */
     height: 10vh;
     transition: background-color 0.3s ease; 
     font-size: 40.0px
