@@ -17,12 +17,12 @@ function Profile_Setup() {
 
     return (
         <div className="profile_setup-container">
-            <p className="header">Profile Setup</p>
+            <p className="header" style = {{marginRight: 450}}>class Profile:</p>
             <form>
                 {/* Name Input */}
                 <input
                     type="text"
-                    placeholder="Name"
+                    placeholder="self.Name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     className="input-field"
@@ -31,7 +31,7 @@ function Profile_Setup() {
                 {/* Location Input */}
                 <input
                     type="text"
-                    placeholder="Location"
+                    placeholder="self.Location"
                     value={location}
                     onChange={(e) => setLocation(e.target.value)}
                     className="input-field"
@@ -40,7 +40,7 @@ function Profile_Setup() {
                 {/* School Input */}
                 <input
                     type="text"
-                    placeholder="School"
+                    placeholder="self.School"
                     value={school}
                     onChange={(e) => setSchool(e.target.value)}
                     className="input-field"
@@ -49,7 +49,7 @@ function Profile_Setup() {
                 {/* LinkedIn Input */}
                 <input
                     type="text"
-                    placeholder="LinkedIn"
+                    placeholder="self.LinkedIn"
                     value={linkedIn}
                     onChange={(e) => setLinkedIn(e.target.value)}
                     className="input-field"
@@ -61,7 +61,7 @@ function Profile_Setup() {
                     onChange={(e) => setPronouns(e.target.value)}
                     className="input-field dropdown"
                 >
-                    <option value="">Pronouns</option>
+                    <option value="">self.Pronouns</option>
                     <option value="He/Him">He/Him</option>
                     <option value="She/Her">She/Her</option>
                     <option value="They/Them">They/Them</option>
@@ -74,7 +74,7 @@ function Profile_Setup() {
                     onChange={(e) => setAge(e.target.value)}
                     className="input-field dropdown"
                 >
-                    <option value="">Age</option>
+                    <option value="">self.Age</option>
                     {[...Array(100).keys()].map(i => (
                         <option key={i + 18} value={i + 18}>{i + 18}</option>
                     ))}
@@ -86,7 +86,7 @@ function Profile_Setup() {
                     onChange={(e) => setGender(e.target.value)}
                     className="input-field dropdown"
                 >
-                    <option value="">Gender</option>
+                    <option value="">self.Gender</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                     <option value="Non-binary">Non-binary</option>
@@ -99,7 +99,7 @@ function Profile_Setup() {
                     onChange={(e) => setOrientation(e.target.value)}
                     className="input-field dropdown"
                 >
-                    <option value="">Orientation</option>
+                    <option value="">self.Orientation</option>
                     <option value="Straight">Straight</option>
                     <option value="Gay">Gay</option>
                     <option value="Bisexual">Bisexual</option>
@@ -112,7 +112,7 @@ function Profile_Setup() {
                     onChange={(e) => setRelationshipType(e.target.value)}
                     className="input-field dropdown"
                 >
-                    <option value="">Relationship Type</option>
+                    <option value="">self.Relationship Type</option>
                     <option value="Monogamous">Monogamous</option>
                     <option value="Polyamorous">Polyamorous</option>
                     <option value="Open">Open</option>
@@ -124,7 +124,7 @@ function Profile_Setup() {
                     onChange={(e) => setLookingFor(e.target.value)}
                     className="input-field dropdown"
                 >
-                    <option value="">Looking For</option>
+                    <option value="">self.Looking For</option>
                     <option value="Friendship">Friendship</option>
                     <option value="Casual Dating">Casual Dating</option>
                     <option value="Long-term Relationship">Long-term Relationship</option>
@@ -136,7 +136,7 @@ function Profile_Setup() {
                     onChange={(e) => setHeight(e.target.value)}
                     className="input-field dropdown"
                 >
-                    <option value="">Height</option>
+                    <option value="">self.Height</option>
                     {[...Array(36).keys()].map(i => (
                         <option key={i} value={`${4 + Math.floor(i / 12)}'${i % 12}"`}>
                             {4 + Math.floor(i / 12)}' {i % 12}"
@@ -144,7 +144,7 @@ function Profile_Setup() {
                     ))}
                 </select>
 
-                <button type="submit">Save</button>
+                <button className = "button-design" type="submit">Save</button>
             </form>
         </div>
     );

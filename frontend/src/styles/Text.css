@@ -36,3 +36,14 @@
     transition: background-color 0.3s ease; 
     font-size: 40.0px
 }
+
+.button-text-design{
+    background: none;          /* Remove button background */
+    border: none;              /* Remove button border */
+    font-family: 'Courier New';
+    color: #595959;
+    font-size: 20.0px;             /* Set the text color */
+    text-decoration: underline; /* Underline the text */
+    cursor: pointer;           /* Make cursor a pointer on hover */     
+    padding: 0;   
+}

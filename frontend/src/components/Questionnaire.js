@@ -25,7 +25,7 @@ function MatchingQuestions() {
 
     return (
         <div className="matching-questions-container">
-            <p className="header">Questionnaire</p>
+            <p className="header"style = {{marginRight: 490}}>Questionnaire</p>
             <form onSubmit={handleSubmit}>
                 {/* How much do you go out? */}
                 <label>
@@ -110,7 +110,7 @@ function MatchingQuestions() {
                     </div>
                 )}
 
-                <button type="submit">Submit Answers</button>
+                <button className = "button-design" Buttype="submit">Submit Answers</button>
             </form>
         </div>
     );

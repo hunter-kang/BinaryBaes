@@ -97,7 +97,7 @@ function Signup() {
                     value={firstname}
                     onChange={handleChange}
         />
-        <p className="small-text">lastname:</p>
+        <p className="small-text"style={{marginTop: 30}}>lastname:</p>
         <input className="input-signup"
                     name="lastname"
                     type="text"
