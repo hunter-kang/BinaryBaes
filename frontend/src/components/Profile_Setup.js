@@ -15,6 +15,13 @@ function Profile_Setup() {
     const [lookingFor, setLookingFor] = useState('');
     const [height, setHeight] = useState('');
 
+    const [profilePic, setProfilePic] = useState('');
+    const [CafePic, setCafePic] = useState('');
+    const [JobPic, setJobPic] = useState('');
+    const [ColorPic, setColorPic] = useState('');
+    const [EmojiPic, setEmojiPic] = useState('');
+    const [HappyPic, setHappyPic] = useState('');
+
     return (
         <div className="profile_setup-container">
             <p className="header">Profile Setup</p>
@@ -40,8 +47,8 @@ function Profile_Setup() {
                     id="ProfilePicture"
                     style={{visibility:"hidden"}}
                     type={"file"}
-                    //value = {ProfilePicture}
-                    //onChange={(e) => setPicture(e.target.value)}
+                    value = {profilePic}
+                    onChange={(e) => setProfilePic(e.target.value)}
                 />
                 {/* here, we should add a preview of the image if it was successfully uploaded */}
 
@@ -181,8 +188,8 @@ function Profile_Setup() {
                     id="CafePicture"
                     style={{visibility:"hidden"}}
                     type={"file"}
-                    //value = {ProfilePicture}
-                    //onChange={(e) => setPicture(e.target.value)}
+                    value = {CafePic}
+                    onChange={(e) => setCafePic(e.target.value)}
                 />
                 {/* here, we should add a preview of the image if it was successfully uploaded */}
 
@@ -204,8 +211,8 @@ function Profile_Setup() {
                     id="JobPicture"
                     style={{visibility:"hidden"}}
                     type={"file"}
-                    //value = {ProfilePicture}
-                    //onChange={(e) => setPicture(e.target.value)}
+                    value = {JobPicture}
+                    onChange={(e) => setJobPic(e.target.value)}
                 />
                 {/* here, we should add a preview of the image if it was successfully uploaded */}
 
@@ -227,8 +234,8 @@ function Profile_Setup() {
                     id="ColorPicture"
                     style={{visibility:"hidden"}}
                     type={"file"}
-                    //value = {ProfilePicture}
-                    //onChange={(e) => setPicture(e.target.value)}
+                    value = {ColorPic}
+                    onChange={(e) => setColorPic(e.target.value)}
                 />
                 {/* here, we should add a preview of the image if it was successfully uploaded */}
 
@@ -247,11 +254,11 @@ function Profile_Setup() {
                     Emoji Picture
                 </label>
                 <input
-                    id="CafePicture"
+                    id="EmojiPicture"
                     style={{visibility:"hidden"}}
                     type={"file"}
-                    //value = {ProfilePicture}
-                    //onChange={(e) => setPicture(e.target.value)}
+                    value = {EmojiPic}
+                    onChange={(e) => setEmojiPic(e.target.value)}
                 />
                 {/* here, we should add a preview of the image if it was successfully uploaded */}
 
@@ -273,8 +280,8 @@ function Profile_Setup() {
                     id="HappyPicture"
                     style={{visibility:"hidden"}}
                     type={"file"}
-                    //value = {ProfilePicture}
-                    //onChange={(e) => setPicture(e.target.value)}
+                    value = {HappyPic}
+                    onChange={(e) => setHappyPic(e.target.value)}
                 />
                 {/* here, we should add a preview of the image if it was successfully uploaded */}
             </form>
