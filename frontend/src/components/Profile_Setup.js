@@ -18,6 +18,7 @@ function Profile_Setup() {
     return (
         <div className="profile_setup-container">
             <p className="header">Profile Setup</p>
+            <p className="sub-header" style={{margin: "0px"}}>General Information*</p>
             <form>
                 {/* Name Input */}
                 <input
@@ -27,6 +28,22 @@ function Profile_Setup() {
                     onChange={(e) => setName(e.target.value)}
                     className="input-field"
                 />
+
+                {/* Profile Picture Input */}
+                <label
+                    htmlFor="ProfilePicture"
+                    className="input-field"
+                    style={{textAlign: 'left', margin: "0px", fontSize: "12px"}}>
+                    Profile Picture
+                </label>
+                <input
+                    id="ProfilePicture"
+                    style={{visibility:"hidden"}}
+                    type={"file"}
+                    //value = {ProfilePicture}
+                    //onChange={(e) => setPicture(e.target.value)}
+                />
+                {/* here, we should add a preview of the image if it was successfully uploaded */}
 
                 {/* Location Input */}
                 <input
@@ -143,9 +160,125 @@ function Profile_Setup() {
                         </option>
                     ))}
                 </select>
-
-                <button type="submit">Save</button>
             </form>
+            <p className="sub-header" style={{margin: "0px"}}>More About Yourself</p>
+            <form>
+                {/* Question #1 Input */}
+                <input
+                    type="text"
+                    placeholder="What is your favorite thing to order when doing work at a cafe?"
+                    value={location}
+                    onChange={(e) => setLocation(e.target.value)}
+                    className="input-field"
+                />
+                <label
+                    htmlFor="CafePicture"
+                    className="input-field"
+                    style={{textAlign: 'left', margin: "0px", fontSize: "12px"}}>
+                    Cafe Picture
+                </label>
+                <input
+                    id="CafePicture"
+                    style={{visibility:"hidden"}}
+                    type={"file"}
+                    //value = {ProfilePicture}
+                    //onChange={(e) => setPicture(e.target.value)}
+                />
+                {/* here, we should add a preview of the image if it was successfully uploaded */}
+
+                {/* Question #2 Input */}
+                <input
+                    type="text"
+                    placeholder="If you could work any job irrespective of salary or requirements what would you choose?"
+                    value={location}
+                    onChange={(e) => setLocation(e.target.value)}
+                    className="input-field"
+                />
+                <label
+                    htmlFor="JobPicture"
+                    className="input-field"
+                    style={{textAlign: 'left', margin: "0px", fontSize: "12px"}}>
+                    Job Picture
+                </label>
+                <input
+                    id="JobPicture"
+                    style={{visibility:"hidden"}}
+                    type={"file"}
+                    //value = {ProfilePicture}
+                    //onChange={(e) => setPicture(e.target.value)}
+                />
+                {/* here, we should add a preview of the image if it was successfully uploaded */}
+
+                {/* Question #3 Input */}
+                <input
+                    type="text"
+                    placeholder="What is your favorite color (in Hexadecimal!)?"
+                    value={location}
+                    onChange={(e) => setLocation(e.target.value)}
+                    className="input-field"
+                />
+                <label
+                    htmlFor="ColorPicture"
+                    className="input-field"
+                    style={{textAlign: 'left', margin: "0px", fontSize: "12px"}}>
+                    Color Picture
+                </label>
+                <input
+                    id="ColorPicture"
+                    style={{visibility:"hidden"}}
+                    type={"file"}
+                    //value = {ProfilePicture}
+                    //onChange={(e) => setPicture(e.target.value)}
+                />
+                {/* here, we should add a preview of the image if it was successfully uploaded */}
+
+                {/* Question #4 Input */}
+                <input
+                    type="text"
+                    placeholder="What emoji do you personify?"
+                    value={location}
+                    onChange={(e) => setLocation(e.target.value)}
+                    className="input-field"
+                />
+                <label
+                    htmlFor="EmojiPicture"
+                    className="input-field"
+                    style={{textAlign: 'left', margin: "0px", fontSize: "12px"}}>
+                    Emoji Picture
+                </label>
+                <input
+                    id="CafePicture"
+                    style={{visibility:"hidden"}}
+                    type={"file"}
+                    //value = {ProfilePicture}
+                    //onChange={(e) => setPicture(e.target.value)}
+                />
+                {/* here, we should add a preview of the image if it was successfully uploaded */}
+
+                {/* Question #5 Input */}
+                <input
+                    type="text"
+                    placeholder="Where is your happy place?"
+                    value={location}
+                    onChange={(e) => setLocation(e.target.value)}
+                    className="input-field"
+                />
+                <label
+                    htmlFor="HappyPicture"
+                    className="input-field"
+                    style={{textAlign: 'left', margin: "0px", fontSize: "12px"}}>
+                    Happy Picture
+                </label>
+                <input
+                    id="HappyPicture"
+                    style={{visibility:"hidden"}}
+                    type={"file"}
+                    //value = {ProfilePicture}
+                    //onChange={(e) => setPicture(e.target.value)}
+                />
+                {/* here, we should add a preview of the image if it was successfully uploaded */}
+            </form>
+            <button type="submit">Save</button>
         </div>
     );
 }
