@@ -14,75 +14,74 @@ const UserSchema = new Schema({
     email:{
         type: String,
         required: true,
-        unique : true
     },
     linkedin:{
         type: String,
-        unique : true
+        required: false
     },
     major:{
         type: String,
-        unique: true
+        required: false
     },
     employment:{
         type: String,
-        unique : true
+        required: false
     },
     salary:{
         type: String,
-        unique: true
+        required: false
     },
     height:{
         type: String,
-        unique: true
+        required: false
     },
     ethnicity:{
         type: String,
-        unique: true
+        required: false
     },
     education:{
         type: String,
-        unique: true
+        required: false
     },
     outside:{
         type: String,
-        unique: true
+        required: false
     },
     so:{
         type: String,
-        unique: true
+        required: false
     },
     frugal:{
         type: String,
-        unique: true
+        required: false
     },
     shower:{
         type: String,
-        unique: true
+        required: false
     },
     tech:{
         type: String,
-        unique: true
+        required: false
     },
     cafe:{
         type: String,
-        unique: true
+        required: false
     },
     language:{
         type: String,
-        unique: true
+        required: false
     },
     color:{
         type: String,
-        unique: true
+        required: false
     },
     art:{
         type: String,
-        unique: true
+        required: false
     },
     boba:{
         type: String,
-        unique: true
+        required: false
     }
 })
 

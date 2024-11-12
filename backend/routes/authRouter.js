@@ -17,6 +17,6 @@ import {profileValidation} from '../middleware/authValidation.js';
 router.post('/login', loginValidation, login)
 
 router.post('/signup', signupValidation, signup)
-export default router;
 
 router.post('/profile', profileValidation, profile)
+export default router;
