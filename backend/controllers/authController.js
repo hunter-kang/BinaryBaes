@@ -67,7 +67,6 @@ const login = async (req, res) =>{
 
 const profile = async (req, res) => {
     try {
-        // Confirm req.user is set by ensureAuthenticated middleware
         if (!req.user || !req.user._id) {
             return res.status(401).json({
                 message: "Unauthorized access, user not found in request",
@@ -78,7 +77,7 @@ const profile = async (req, res) => {
         const userId = req.user._id;
         console.log("User ID from JWT:", userId);
 
-        // Query the user with selected fields
+         
         const user = await UserModel.findById(userId, 'email linkedin major employment salary height ethnicity education outside so frugal shower tech cafe language color art boba');
 
         if (!user) {
@@ -88,7 +87,7 @@ const profile = async (req, res) => {
             });
         }
 
-        // Respond with user profile data
+         
         res.status(200).json({
             message: "Profile fetched successfully",
             success: true,

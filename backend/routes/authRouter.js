@@ -1,22 +1,14 @@
 import { Router } from 'express';
 import cors from 'cors';
+import { signupValidation, loginValidation, profileValidation } from '../middleware/authValidation.js';
+import { signup, login, profile } from '../controllers/authController.js';
+import { ensureAuthenticated } from '../middleware/auth.js';
 
 const router = Router();
 
+router.post('/login', loginValidation, login);
+router.post('/signup', signupValidation, signup);
 
-import { signupValidation } from '../middleware/authValidation.js';
-import { loginValidation } from '../middleware/authValidation.js';
-import {signup} from '../controllers/authController.js';
-import {login} from '../controllers/authController.js';
-import {profile} from '../controllers/authController.js';
-import {profileValidation} from '../middleware/authValidation.js';
+router.get('/profile', ensureAuthenticated, profile);
 
-
-
-
-router.post('/login', loginValidation, login)
-
-router.post('/signup', signupValidation, signup)
-
-router.post('/profile', profileValidation, profile)
 export default router;
