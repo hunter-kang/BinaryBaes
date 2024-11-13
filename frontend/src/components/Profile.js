@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import "../styles/Text.css";
 import "../styles/Profile.css";
+import TaskBar from '../components/TaskBar';
 import logo from '../assets/logo-design.png';
 
 export default function Profile(){
@@ -33,6 +34,8 @@ export default function Profile(){
                 <p className="question-text">If you could be anyone for a day who would you be?</p>
                 <p className="question-answer">Myself lol!</p>
             </div>
+            <TaskBar page = "PROFLIE"/>
         </div>
+        
     );
 }

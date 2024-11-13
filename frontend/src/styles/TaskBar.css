@@ -1,0 +1,14 @@
+.task-bar-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.rectangle {
+    display: flex;
+    width: 1450px;
+    height: 100px;
+    background-color: #eeeeeeff;
+    border: 2px solid #595959;
+    border-radius: 10px;
+    flex-direction: row;
+  }

@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import "../styles/Home.css";
 import "../styles/Text.css";
+import TaskBar from '../components/TaskBar';
 
 function Home() {
-console.log('Hello')
-}
+return (
+    <div className = "background-container">
+        <TaskBar page = "HOME"/>
+    </div>
+);
+};
 
 export default Home;
 
