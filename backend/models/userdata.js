@@ -2,7 +2,7 @@ import mongoose, { mongo } from "mongoose";
 
 const Schema = mongoose.Schema;
 
-const UserSchema = new Schema({
+const profileSchema = new Schema({
     firstname:{
         type: String,
         required: true
@@ -82,9 +82,35 @@ const UserSchema = new Schema({
     boba:{
         type: String,
         required: false
+    }, 
+    goingOutFrequency:{
+        type: String,
+        required: true
+    },
+    salary:{
+        type: String,
+        required: true
+    },
+    showerFrequency:{
+        type: String,
+        required: true
+    },
+    codingLanguage:{
+        type: String,
+        required: true
+    },
+    employmentStatus:{
+        type: String,
+        required: true
+    },
+    company:{
+        type: String,
+        required: false
     }
+
+
 })
 
-const UserModel = mongoose.model('profile', UserSchema)
-export default UserModel;
+const Profile = mongoose.model('profile', profileSchema)
+export default Profile;
 
