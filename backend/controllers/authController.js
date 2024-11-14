@@ -14,11 +14,21 @@ const signup = async (req, res) =>{
         const userModel = new UserModel({firstname, lastname, email, password})
         userModel.password = await bcrypt.hash(password, 10)
         await userModel.save()
+        // Generate JWT token
+        const jwtToken = jwt.sign(
+            { email: userModel.email, _id: userModel._id },
+            process.env.JWT_SECRET,
+            { expiresIn: '24h' }
+        );
+
+
         res.status(201)
             .json({
                 message : "Signup successful",
-                success: true
+                success: true,
+                jwtToken
             })
+
     }
     catch (err){
         res.status(500)
@@ -65,60 +75,4 @@ const login = async (req, res) =>{
     }
 }
 
-const profile = async (req, res) => {
-    try {
-        if (!req.user || !req.user._id) {
-            return res.status(401).json({
-                message: "Unauthorized access, user not found in request",
-                success: false
-            });
-        }
-
-        const userId = req.user._id;
-        console.log("User ID from JWT:", userId);
-
-         
-        const user = await UserModel.findById(userId, 'email linkedin major employment salary height ethnicity education outside so frugal shower tech cafe language color art boba');
-
-        if (!user) {
-            return res.status(404).json({
-                message: "User not found",
-                success: false
-            });
-        }
-
-         
-        res.status(200).json({
-            message: "Profile fetched successfully",
-            success: true,
-            profile: {
-                email: user.email,
-                linkedin: user.linkedin || '',
-                major: user.major || '',
-                employment: user.employment || '',
-                salary: user.salary || '',
-                height: user.height || '',
-                ethnicity: user.ethnicity || '',
-                education: user.education || '',
-                outside: user.outside || '',
-                so: user.so || '',
-                frugal: user.frugal || '',
-                shower: user.shower || '',
-                tech: user.tech || '',
-                cafe: user.cafe || '',
-                language: user.language || '',
-                color: user.color || '',
-                art: user.art || '',
-                boba: user.boba || ''
-            }
-        });
-    } catch (err) {
-        console.error("Error fetching profile:", err);
-        res.status(500).json({
-            message: "Internal server error",
-            success: false
-        });
-    }
-};
-
-export { signup, login, profile };
+export { signup, login};
