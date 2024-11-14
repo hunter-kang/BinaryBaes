@@ -28,10 +28,6 @@ const UserSchema = new Schema({
         type: String,
         required: false
     },
-    employment:{
-        type: String,
-        required: false
-    },
     salary:{
         type: String,
         required: false
