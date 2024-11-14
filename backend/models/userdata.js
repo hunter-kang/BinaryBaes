@@ -1,4 +1,6 @@
-import mongoose, { mongo } from "mongoose";
+/**NO LONGER NEEDED
+ * 
+ * import mongoose, { mongo } from "mongoose";
 
 const Schema = mongoose.Schema;
 
@@ -113,4 +115,4 @@ const profileSchema = new Schema({
 
 const Profile = mongoose.model('profile', profileSchema)
 export default Profile;
-
+**/

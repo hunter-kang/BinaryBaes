@@ -60,7 +60,8 @@ const profile = async (req, res) => {
         console.log("User ID from JWT:", userId);
 
          
-        const user = await UserModel.findById(userId, 'email linkedin major employment salary height ethnicity education outside so frugal shower tech cafe language color art boba');
+        const user = await UserModel.findById(userId, 'email linkedin major employment salary height ethnicity education outside so frugal shower tech cafe language color art boba codingLanguage company employmentStatus goingOutFrequency showerFrequency');
+
 
         if (!user) {
             return res.status(404).json({
