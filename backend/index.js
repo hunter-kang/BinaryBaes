@@ -18,7 +18,7 @@ app.use(cors({
     origin: 'http://localhost:3000'   
   }));
 app.use('/auth', authRouter)
-app.use('/products', productRouter)
+app.use('/user', productRouter)
 
 app.get('/test', (request, response) => {
     console.log(request);  

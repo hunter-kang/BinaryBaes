@@ -20,6 +20,92 @@ const UserSchema = new Schema({
         required: true,
         unique : true
     },
+    linkedin:{
+        type: String,
+        required: false
+    },
+    major:{
+        type: String,
+        required: false
+    },
+    employment:{
+        type: String,
+        required: false
+    },
+    salary:{
+        type: String,
+        required: false
+    },
+    height:{
+        type: String,
+        required: false
+    },
+    ethnicity:{
+        type: String,
+        required: false
+    },
+    education:{
+        type: String,
+        required: false
+    },
+    outside:{
+        type: String,
+        required: false
+    },
+    so:{
+        type: String,
+        required: false
+    },
+    frugal:{
+        type: String,
+        required: false
+    },
+    shower:{
+        type: String,
+        required: false
+    },
+    tech:{
+        type: String,
+        required: false
+    },
+    cafe:{
+        type: String,
+        required: false
+    },
+    language:{
+        type: String,
+        required: false
+    },
+    color:{
+        type: String,
+        required: false
+    },
+    art:{
+        type: String,
+        required: false
+    },
+    boba:{
+        type: String,
+        required: false
+    }, 
+    goingOutFrequency:{
+        type: String
+    },
+    salary:{
+        type: String
+    },
+    showerFrequency:{
+        type: String
+    },
+    codingLanguage:{
+        type: String
+    },
+    employmentStatus:{
+        type: String
+    },
+    company:{
+        type: String
+    }
 })
 
 const UserModel = mongoose.model('auth', UserSchema)
