@@ -10,18 +10,47 @@ function MatchingQuestions() {
     const [employmentStatus, setEmploymentStatus] = useState('');
     const [company, setCompany] = useState('');
 
-    const handleSubmit = (event) => {
+    //backend connection
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        const answers = {
-            goingOutFrequency,
-            salary,
-            showerFrequency,
-            codingLanguage,
-            employmentStatus,
-            company,
-        };
-        console.log('User Answers:', answers);
-    };
+      
+        if (!goingOutFrequency || !salary || !showerFrequency || !codingLanguage || !employmentStatus) {
+          alert("Required fields are missing");
+          return;
+        }
+      
+        try {
+            const token = localStorage.getItem('token');
+            const url = "http://localhost:5555/user/questionnaire";
+            const questionnaireData = {
+                goingOutFrequency, 
+                salary,
+                showerFrequency,
+                codingLanguage,
+                employmentStatus,
+                company
+            }
+            const response = await fetch(url, {
+                method: "POST",
+                headers: {
+                "Content-Type": "application/json",
+                'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify(questionnaireData),
+          });
+            const result = await response.json();
+            console.log('Response:', result);
+        
+            if (result.success) {
+                alert('Questionnaire submitted successfully!');
+            } else {
+                alert(result.message || 'Submission failed.');
+            }
+        } catch (err) {
+          console.error("An error occurred:", err);
+          alert("An error occurred. Please try again.");
+        }
+      };
 
     return (
         <div className="matching-questions-container">
