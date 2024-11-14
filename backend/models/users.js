@@ -24,11 +24,27 @@ const UserSchema = new Schema({
         type: String,
         required: false
     },
-    major:{
+    school:{
         type: String,
         required: false
     },
-    employment:{
+    location:{
+        type: location,
+        required: false
+    },
+    pronouns:{
+        type: String,
+        required: false
+    },
+    gender:{
+        type: String,
+        required: false
+    },
+    orientation:{
+        type: String,
+        required: false
+    },
+    major:{
         type: String,
         required: false
     },
@@ -48,31 +64,11 @@ const UserSchema = new Schema({
         type: String,
         required: false
     },
-    outside:{
-        type: String,
-        required: false
-    },
-    so:{
-        type: String,
-        required: false
-    },
     frugal:{
-        type: String,
+        type: int,
         required: false
     },
-    shower:{
-        type: String,
-        required: false
-    },
-    tech:{
-        type: String,
-        required: false
-    },
-    cafe:{
-        type: String,
-        required: false
-    },
-    language:{
+    age:{
         type: String,
         required: false
     },
@@ -80,14 +76,10 @@ const UserSchema = new Schema({
         type: String,
         required: false
     },
-    art:{
+    lookingFor:{
         type: String,
         required: false
     },
-    boba:{
-        type: String,
-        required: false
-    }, 
     goingOutFrequency:{
         type: String
     },
