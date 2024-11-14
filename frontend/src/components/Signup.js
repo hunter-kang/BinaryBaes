@@ -74,8 +74,12 @@ function Signup() {
   
       const result = await response.json();
       console.log(result);
-      alert("User registered successfully!");
-      navigate("/questionnaire"); // Redirect after successful signup (optional)
+      if (result.success) {
+        // Store the JWT token in localStorage after signup
+        localStorage.setItem('token', result.jwtToken);
+        alert("User registered successfully!");
+        navigate("/questionnaire"); // Redirect to questionnaire page
+    }
     } catch (err) {
       console.error("An error occurred:", err);
       alert("An error occurred. Please try again.");
