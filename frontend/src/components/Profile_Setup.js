@@ -6,17 +6,15 @@ function Profile_Setup() {
     //message to Amaia: when you get the name from backend make sure you concatenate
     //or seperate the first name and last name however you chose to connect
 
-    //message to Simon: commented out useStates are the ones that Amaia needs added so we can display this data
     const [name, setName] = useState('');
     const [location, setLocation] = useState('');
     const [school, setSchool] = useState('');
     const [linkedIn, setLinkedIn] = useState('');
-    const [pronouns, setPronouns] = useState(''); //put this as drop down (she/her, he/him etc)
+    const [pronouns, setPronouns] = useState('');
     const [age, setAge] = useState('');
-    const [gender, setGender] = useState(''); //drop down would be great too
+    const [gender, setGender] = useState('');
     const [orientation, setOrientation] = useState('');
-    const [relationshipType, setRelationshipType] = useState(''); //dont need this remove
-    const [lookingFor, setLookingFor] = useState(''); //paragraph response 
+    const [lookingFor, setLookingFor] = useState(''); 
     const [height, setHeight] = useState('');
     const [personality, setPersonality] = useState('');
 
@@ -145,18 +143,6 @@ function Profile_Setup() {
                     <option value="Gay">Gay</option>
                     <option value="Bisexual">Bisexual</option>
                     <option value="Other">Other</option>
-                </select>
-
-                {/* Relationship Type Dropdown */}
-                <select
-                    value={relationshipType}
-                    onChange={(e) => setRelationshipType(e.target.value)}
-                    className="input-field dropdown"
-                >
-                    <option value="">self.relationship_type</option>
-                    <option value="Monogamous">Monogamous</option>
-                    <option value="Polyamorous">Polyamorous</option>
-                    <option value="Open">Open</option>
                 </select>
 
                 {/* Looking For Dropdown */}
@@ -330,6 +316,15 @@ function Profile_Setup() {
             </form>
             <p className="sub-header" style={{margin: "0px"}}>Profile.questionnaire_answers</p>
             <form>
+                {/* Major Input */}
+                <input
+                    type="text"
+                    placeholder="self.major"
+                    value={major}
+                    onChange={(e) => setMajor(e.target.value)}
+                    className="input-field"
+                />
+
                 {/* Color Input */}
                 <input
                     type="text"
