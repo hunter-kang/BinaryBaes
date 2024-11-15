@@ -3,17 +3,31 @@ import "../styles/Profile_Setup.css";
 import "../styles/Text.css";
 
 function Profile_Setup() {
+    //message to Amaia: when you get the name from backend make sure you concatenate
+    //or seperate the first name and last name however you chose to connect
+
+    //message to Simon: commented out useStates are the ones that Amaia needs added so we can display this data
     const [name, setName] = useState('');
     const [location, setLocation] = useState('');
     const [school, setSchool] = useState('');
     const [linkedIn, setLinkedIn] = useState('');
-    const [pronouns, setPronouns] = useState('');
+    const [pronouns, setPronouns] = useState(''); //put this as drop down (she/her, he/him etc)
     const [age, setAge] = useState('');
-    const [gender, setGender] = useState('');
+    const [gender, setGender] = useState(''); //drop down would be great too
     const [orientation, setOrientation] = useState('');
-    const [relationshipType, setRelationshipType] = useState('');
-    const [lookingFor, setLookingFor] = useState('');
+    const [relationshipType, setRelationshipType] = useState(''); //dont need this remove
+    const [lookingFor, setLookingFor] = useState(''); //paragraph response 
     const [height, setHeight] = useState('');
+    //const [major, setMajor] = useState('');
+    //fav color
+    //salary
+    //ethnicity
+    //education (make this drop down menu of HS Diploma,Bachelor, Master, phD)
+    //how frugal are you from a scale of 1 - 10
+    //showerFrequency
+    //codingLanguage
+    //employmentStatus
+    //company
 
     return (
         <div className="profile_setup-container">
