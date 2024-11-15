@@ -59,7 +59,7 @@ function MatchingQuestions() {
                 {/* How much do you go out? */}
                 <label>
                     <select value={goingOutFrequency} onChange={(e) => setGoingOutFrequency(e.target.value)} className="dropdown">
-                        <option value="">How often do you go out?</option>
+                        <option value="">self.going_out_frequency</option>
                         <option value="Rarely">Rarely</option>
                         <option value="Sometimes">Sometimes</option>
                         <option value="Often">Often</option>
@@ -70,8 +70,8 @@ function MatchingQuestions() {
                 {/* Salary */}
                 <label>
                     <select value={salary} onChange={(e) => setSalary(e.target.value)} className="dropdown">
-                        <option value="">What is your salary range?</option>
-                        <option value="Poor">Poor</option>
+                        <option value="">self.salary</option>
+                        <option value="Poor">less than 100k</option>
                         <option value="100k-120k">100k-120k</option>
                         <option value="120k-150k">120k-150k</option>
                         <option value="150K+">150K+</option>
@@ -81,7 +81,7 @@ function MatchingQuestions() {
                 {/* Shower Frequency */}
                 <label>
                     <select value={showerFrequency} onChange={(e) => setShowerFrequency(e.target.value)} className="dropdown">
-                        <option value="">How often do you shower?</option>
+                        <option value="">self.shower_frequency</option>
                         <option value="Daily">Daily</option>
                         <option value="Every other day">Every other day</option>
                         <option value="A few times a week">A few times a week</option>
@@ -92,7 +92,7 @@ function MatchingQuestions() {
                 {/* Favorite Coding Language Dropdown */}
                 <label>
                     <select value={codingLanguage} onChange={(e) => setCodingLanguage(e.target.value)} className="dropdown">
-                        <option value="">Favorite Programming Langugage</option>
+                        <option value="">self.coding_language</option>
                         <option value="JavaScript">JavaScript</option>
                         <option value="Python">Python</option>
                         <option value="Java">Java</option>
@@ -116,7 +116,7 @@ function MatchingQuestions() {
                 {/* Employment Status */}
                 <label>
                     <select value={employmentStatus} onChange={(e) => setEmploymentStatus(e.target.value)} className="dropdown">
-                        <option value="">Select Employment Status</option>
+                        <option value="">self.employment_status</option>
                         <option value="Employed">Employed</option>
                         <option value="Self-employed">Self-employed</option>
                         <option value="Unemployed">Unemployed</option>
@@ -132,7 +132,7 @@ function MatchingQuestions() {
                                 type="text"
                                 value={company}
                                 onChange={(e) => setCompany(e.target.value)}
-                                placeholder="Enter company name"
+                                placeholder="self.company"
                                 className="input-field"
                             />
                         </label>

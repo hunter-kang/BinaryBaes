@@ -18,16 +18,19 @@ function Profile_Setup() {
     const [relationshipType, setRelationshipType] = useState(''); //dont need this remove
     const [lookingFor, setLookingFor] = useState(''); //paragraph response 
     const [height, setHeight] = useState('');
-    //const [major, setMajor] = useState('');
-    //fav color
-    //salary
-    //ethnicity
-    //education (make this drop down menu of HS Diploma,Bachelor, Master, phD)
-    //how frugal are you from a scale of 1 - 10
-    //showerFrequency
-    //codingLanguage
-    //employmentStatus
-    //company
+    const [personality, setPersonality] = useState('');
+
+    const [major, setMajor] = useState('');
+    const [color, setColor] = useState('');
+    const [salary, setSalary] = useState('');
+    const [ethnicity, setEthnicity] = useState('');
+    const [education, setEducation] = useState('');
+    const [frugal, setFrugal] = useState('');
+    const [showerFrequency, setShowerFrequency] = useState('');
+    const [goingOutFrequency, setGoingOutFrequency] = useState('');
+    const [codingLanguage, setCodingLanguage] = useState('');
+    const [employmentStatus, setEmploymentStatus] = useState('');
+    const [company, setCompany] = useState('');
 
     const [profilePic, setProfilePic] = useState('');
     const [CafePic, setCafePic] = useState('');
@@ -100,9 +103,9 @@ function Profile_Setup() {
                     className="input-field dropdown"
                 >
                     <option value="">self.pronouns</option>
-                    <option value="He && Him">He/Him</option>
-                    <option value="She && Her">She/Her</option>
-                    <option value="They && Them">They/Them</option>
+                    <option value="He/Him">He && Him</option>
+                    <option value="She/Her">She && Her</option>
+                    <option value="They/Them">They && Them</option>
                     <option value="Other">Other</option>
                 </select>
 
@@ -181,6 +184,31 @@ function Profile_Setup() {
                         </option>
                     ))}
                 </select>
+
+                {/* Personality Dropdown */}
+                <select
+                    value={personality}
+                    onChange={(e) => setPersonality(e.target.value)}
+                    className="input-field dropdown"
+                >
+                    <option value="">self.mbti</option>
+                    <option value="INTJ">INTJ</option>
+                    <option value="INTP">INTP</option>
+                    <option value="INFJ">INFJ</option>
+                    <option value="INFP">INFP</option>
+                    <option value="ISTJ">ISTJ</option>
+                    <option value="ISTP">ISTP</option>
+                    <option value="ISFJ">ISFJ</option>
+                    <option value="ISFP">ISFP</option>
+                    <option value="ENTJ">ENTJ</option>
+                    <option value="ENTP">ENTP</option>
+                    <option value="ENFJ">ENFJ</option>
+                    <option value="ENFP">ENFP</option>
+                    <option value="ESTJ">ESTJ</option>
+                    <option value="ESTP">ESTP</option>
+                    <option value="ESFJ">ESFJ</option>
+                    <option value="ESFP">ESFP</option>
+                </select>
             </form>
 
             <p className="sub-header" style={{margin: "0px"}}>Profile.more_about_yourself</p>
@@ -234,7 +262,7 @@ function Profile_Setup() {
                 {/* Question #3 Input */}
                 <input
                     type="text"
-                    placeholder="What is your favorite color (in Hexadecimal!)?"
+                    placeholder="Show off your favorite color!"
                     value={location}
                     onChange={(e) => setLocation(e.target.value)}
                     className="input-field"
@@ -299,6 +327,152 @@ function Profile_Setup() {
                     onChange={(e) => setHappyPic(e.target.value)}
                 />
                 {/* here, we should add a preview of the image if it was successfully uploaded */}
+            </form>
+            <p className="sub-header" style={{margin: "0px"}}>Profile.questionnaire_answers</p>
+            <form>
+                {/* Color Input */}
+                <input
+                    type="text"
+                    placeholder="self.favorite_color"
+                    value={color}
+                    onChange={(e) => setColor(e.target.value)}
+                    className="input-field"
+                />
+
+                {/* Salary Input */}
+                <select
+                    value={salary}
+                    onChange={(e) => setSalary(e.target.value)}
+                    className="input-field dropdown"
+                >
+                    <option value="">self.salary</option>
+                    <option value="Poor">less than 100k</option>
+                    <option value="100k-120k">100k-120k</option>
+                    <option value="120k-150k">120k-150k</option>
+                    <option value="150K+">150K+</option>
+                </select>
+
+                {/* Going Out Frequency Input */}
+                <select
+                    value={goingOutFrequency}
+                    onChange={(e) => setGoingOutFrequency(e.target.value)}
+                    className="input-field dropdown"
+                >
+                    <option value="">self.going_out_frequency</option>
+                    <option value="Rarely">Rarely</option>
+                    <option value="Sometimes">Sometimes</option>
+                    <option value="Often">Often</option>
+                    <option value="Very Often">Very Often</option>
+                </select>
+
+                {/* Ethnicity Input */}
+                <input
+                    type="text"
+                    placeholder="self.ethnicity"
+                    value={ethnicity}
+                    onChange={(e) => setEthnicity(e.target.value)}
+                    className="input-field"
+                />
+
+                {/* Education Dropdown */}
+                <select
+                    value={education}
+                    onChange={(e) => setEducation(e.target.value)}
+                    className="input-field dropdown"
+                >
+                    <option value="">self.education</option>
+                    <option value="High School Diploma">High School Diploma</option>
+                    <option value="Bachelor's Degree">Bachelor's Degree</option>
+                    <option value="Master's Degree">Master's Degree</option>
+                    <option value="PhD">PhD</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                {/* Frugality Dropdown */}
+                <select
+                    value={frugal}
+                    onChange={(e) => setFrugal(e.target.value)}
+                    className="input-field dropdown"
+                >
+                    <option value="">self.frugality</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+
+                {/* Shower Frequency Input */}
+                <select
+                    value={showerFrequency}
+                    onChange={(e) => setShowerFrequency(e.target.value)}
+                    className="input-field dropdown"
+                >
+                    <option value="">self.shower_frequency</option>
+                    <option value="Daily">Daily</option>
+                    <option value="Every other day">Every other day</option>
+                    <option value="A few times a week">A few times a week</option>
+                    <option value="Rarely">Rarely</option>
+                </select>
+
+                {/* Coding Language Input */}
+                <select
+                    value={codingLanguage}
+                    onChange={(e) => setCodingLanguage(e.target.value)}
+                    className="input-field dropdown"
+                >
+                    <option value="">self.coding_language</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="Python">Python</option>
+                    <option value="Java">Java</option>
+                    <option value="C">C</option>
+                    <option value="C++">C++</option>
+                    <option value="C#">C#</option>
+                    <option value="Ruby">Ruby</option>
+                    <option value="Go">Go</option>
+                    <option value="Swift">Swift</option>
+                    <option value="Kotlin">Kotlin</option>
+                    <option value="PHP">PHP</option>
+                    <option value="Rust">Rust</option>
+                    <option value="TypeScript">TypeScript</option>
+                    <option value="R">R</option>
+                    <option value="HTML/CSS">HTML/CSS</option>
+                    <option value="SQL">SQL</option>
+                    <option value="MATLAB">MATLAB</option>
+                </select>
+
+                {/* Employment Dropdown */}
+                <select
+                    value={employmentStatus}
+                    onChange={(e) => setEmploymentStatus(e.target.value)}
+                    className="input-field dropdown"
+                >
+                    <option value="">self.employment_status</option>
+                    <option value="Employed">Employed</option>
+                    <option value="Self-employed">Self-employed</option>
+                    <option value="Unemployed">Unemployed</option>
+                    <option value="Student">Student</option>
+                </select>
+
+                {/* Conditionally Render Company Input if Employment Status is selected */}
+                {employmentStatus && employmentStatus !== "Unemployed" && (
+                    <div className="question-box">
+                        <label>
+                            <input
+                                type="text"
+                                value={company}
+                                onChange={(e) => setCompany(e.target.value)}
+                                placeholder="self.company"
+                                className="input-field"
+                            />
+                        </label>
+                    </div>
+                )}
             </form>
             <button type="submit">Save</button>
         </div>
