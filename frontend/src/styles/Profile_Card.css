@@ -1,0 +1,15 @@
+.profile-card-container {
+    display: flex;
+}
+
+.rectangle-profile {
+    display: flex;
+    width: 500px;
+    height: 550px;
+    align-items: center;
+    background-color: #fff2ccff;
+    border: 2px solid #595959;
+    border-radius: 10px;
+}
+
+
