@@ -29,7 +29,7 @@ const UserSchema = new Schema({
         required: false
     },
     location:{
-        type: location,
+        type: String,
         required: false
     },
     pronouns:{
@@ -65,7 +65,7 @@ const UserSchema = new Schema({
         required: false
     },
     frugal:{
-        type: int,
+        type: String,
         required: false
     },
     age:{
