@@ -5,3 +5,12 @@
     align-items: center;
     justify-content: space-around;
 }
+
+.profile-card-container {
+    transition: transform 0.5s ease-in-out;
+}
+
+.profile-card-container.animate-exit {
+    transform: translateX(-100%);  /* Example of sliding out */
+    opacity: 0;  /* Optionally fade out */
+}
