@@ -2,6 +2,8 @@ import UserModel from '../models/users.js';
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 
+
+//post requests here
 const questionnaire = async(req, res) => {
     try{
         const{goingOutFrequency, salary, showerFrequency, codingLanguage, employmentStatus, company} = req.body;
@@ -46,6 +48,47 @@ const questionnaire = async(req, res) => {
         })
     }
 }
+//get requests here
+
+const home = async(req, res) =>{
+    try{
+        if (!req.user || !req.user._id){
+            return res.status(401).json({
+                message: "Unauthorized access, user not found in request",
+                success: false
+            });
+        }
+        const userId = req.user._id;
+        console.log("User ID from JWT:", userId);
+        //no document matches
+        //return a list of users and using find to get multiple entries
+        const otherUsers = await UserModel.find( { _id: { $ne: userId } }, 'firstname lastname age height school employmentStatus');
+        console.log("otherUsers" , otherUsers)
+
+        if (!otherUsers){
+            return res.status(404).json({
+                message: "none found",
+                success: false
+            });
+        }
+        res.status(200).json({
+            message: "other users fetched successfully",
+            success: true,
+            data: otherUsers
+        });
+
+    }
+    catch (err) {
+        console.error("Error fetching profile:", err);
+        res.status(500).json({
+            message: "Internal server error",
+            success: false
+        });
+    }
+};
+
+
+
 
 const profile = async (req, res) => {
     try {
@@ -61,7 +104,6 @@ const profile = async (req, res) => {
 
          
         const user = await UserModel.findById(userId, 'email linkedin major employment salary height ethnicity education outside so frugal shower tech cafe language color art boba codingLanguage company employmentStatus goingOutFrequency showerFrequency');
-
 
         if (!user) {
             return res.status(404).json({
@@ -108,4 +150,4 @@ const profile = async (req, res) => {
     }
 };
 
-export { questionnaire, profile};
+export { questionnaire, profile, home};
