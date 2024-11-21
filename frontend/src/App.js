@@ -6,7 +6,8 @@ import Profile from './components/Profile';
 import Profile_Setup from './components/Profile_Setup';
 import Questionnaire from './components/Questionnaire';
 import Home from './components/Home';
-//when we submit make sure to only keep the / route and /signup, everything else can be routed from that page 
+//when we submit make sure to only keep the / route and /signup, everything else can be routed from that page
+
 
 function App() {
   return (
@@ -25,6 +26,14 @@ function App() {
   );
 }
 
+
 export default App;
+
+
+
+
+
+
+
 
 

@@ -6,7 +6,37 @@ import logo from '../assets/logo-design.png';
 import snoopy from '../assets/snoopy_sample_img.png'
 import snoopy2 from '../assets/snoopy.jpeg'
 
+
 export default function Profile(){
+
+
+   const [name, setName] = useState('');
+   const [location, setLocation] = useState('');
+   const [school, setSchool] = useState('');
+   const [linkedIn, setLinkedIn] = useState('');
+   const [pronouns, setPronouns] = useState('');
+   const [age, setAge] = useState('');
+   const [gender, setGender] = useState('');
+   const [lookingFor, setLookingFor] = useState('');
+   const [height, setHeight] = useState('');
+
+
+   const [major, setMajor] = useState('');
+   const [color, setColor] = useState('');
+   const [salary, setSalary] = useState('');
+   const [ethnicity, setEthnicity] = useState('');
+   const [education, setEducation] = useState('');
+   const [frugal, setFrugal] = useState('');
+   const [showerFrequency, setShowerFrequency] = useState('');
+   const [goingOutFrequency, setGoingOutFrequency] = useState('');
+   const [codingLanguage, setCodingLanguage] = useState('');
+   const [employmentStatus, setEmploymentStatus] = useState('');
+   const [company, setCompany] = useState('');
+
+
+   const [profilePic, setProfilePic] = useState('');
+  
+
     return(
         <div className="profile-container">
             <p className="profile-text">
@@ -70,3 +100,4 @@ export default function Profile(){
         </div>
     );
 }
+
