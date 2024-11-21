@@ -41,7 +41,7 @@ function Home() {
         fetchUsers();
     }, []); //need [] to make sure it only runs once
     console.log(users)
-    //To hunter: you can now use 
+    //To hunter: you can now use users , which contains all the users and just load them on the page. :)
 
 
 
