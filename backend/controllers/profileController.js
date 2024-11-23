@@ -110,7 +110,7 @@ const profile = async (req, res) => {
 
 
        
-       const user = await UserModel.findById(userId, 'email firstname lastname linkedin major employment salary height ethnicity education outside so frugal shower tech cafe language color art boba codingLanguage company employmentStatus goingOutFrequency showerFrequency');
+       const user = await UserModel.findById(userId, 'email firstname lastname linkedin school location pronouns gender major employment salary height ethnicity education frugal age color lookingFor goingOutFrequency showerFrequency codingLanguage employmentStatus company');
 
 
 
@@ -147,7 +147,6 @@ const profile = async (req, res) => {
                color: user.color || '',
                lookingFor: user.lookingFor || '',
                goingOutFrequency: user.goingOutFrequency || '',
-               salary: user.salary || '',
                showerFrequency: user.showerFrequency || '',
                codingLanguage: user.codingLanguage || '',
                employmentStatus: user.employmentStatus || '',
@@ -163,4 +162,67 @@ const profile = async (req, res) => {
    }
 };
 
-export { questionnaire, profile, home};
+const profilepost = async(req, res) => {
+    try{
+        const{linkedin, school, location, pronouns, gender, major, salary, height, ethnicity, education, frugal, age, color, lookingFor, goingOutFrequency, showerFrequency, codingLanguage, employmentStatus, company} = req.body;
+ 
+ 
+        if (!req.user || !req.user._id) {
+            return res.status(401).json({
+                message: "Unauthorized access", success: false
+            });
+        }
+ 
+ 
+        const userId = req.user._id;
+        const updatedUser = await UserModel.findByIdAndUpdate(
+            userId,
+            {
+                $set: {
+                    linkedin, 
+                    school, 
+                    location, 
+                    pronouns, 
+                    gender, 
+                    major, 
+                    salary, 
+                    height, 
+                    ethnicity, 
+                    education, 
+                    frugal, 
+                    age, 
+                    color, 
+                    lookingFor, 
+                    goingOutFrequency, 
+                    showerFrequency, 
+                    codingLanguage,
+                    employmentStatus, 
+                    company
+                }
+            },
+            { new: true }
+        );
+ 
+ 
+        if (!updatedUser) {
+            return res.status(404).json({ message: "User not found", success: false });
+        }
+ 
+ 
+        res.status(200).json({
+            message: "Profile data saved successfully",
+            success: true,
+            data: updatedUser
+        });
+    }
+    catch (err){
+        res.status(500)
+        .json({
+            message: "Internal server error",
+            success : false
+        })
+    }
+ }
+
+
+export { questionnaire, profile, home, profilepost};
