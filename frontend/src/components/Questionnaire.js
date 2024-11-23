@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import "../styles/Questionnaire.css";
 import "../styles/Text.css";
 
@@ -9,11 +10,11 @@ function MatchingQuestions() {
     const [codingLanguage, setCodingLanguage] = useState('');
     const [employmentStatus, setEmploymentStatus] = useState('');
     const [company, setCompany] = useState('');
+    const navigate = useNavigate();
 
     //backend connection
     const handleSubmit = async (event) => {
         event.preventDefault();
-      
         if (!goingOutFrequency || !salary || !showerFrequency || !codingLanguage || !employmentStatus) {
           alert("Required fields are missing");
           return;
@@ -43,6 +44,7 @@ function MatchingQuestions() {
         
             if (result.success) {
                 alert('Questionnaire submitted successfully!');
+                navigate('/profile');
             } else {
                 alert(result.message || 'Submission failed.');
             }

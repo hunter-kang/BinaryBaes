@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import "../styles/Profile_Setup.css";
+import { useNavigate } from 'react-router-dom';
 import "../styles/Text.css";
 import axios from 'axios';
 
@@ -12,7 +13,7 @@ function Profile_Setup() {
    const [name, setName] = useState('');
    const [location, setLocation] = useState('');
    const [school, setSchool] = useState('');
-   const [linkedIn, setLinkedIn] = useState('');
+   const [linkedin, setLinkedIn] = useState('');
    const [pronouns, setPronouns] = useState('');
    const [age, setAge] = useState('');
    const [gender, setGender] = useState('');
@@ -35,6 +36,7 @@ function Profile_Setup() {
 
    const [profilePic, setProfilePic] = useState('');
    const [profile, setProfile] = useState({});
+   const navigate = useNavigate();
 
 
    useEffect(() => {
@@ -64,6 +66,25 @@ function Profile_Setup() {
 
                const data = await response.json();
                setProfile(data.profile || {});
+               setLinkedIn(data.profile.linkedin || '');
+               setSchool(data.profile.school || '');
+               setLocation(data.profile.location || '');
+               setPronouns(data.profile.pronouns || '');
+               setAge(data.profile.age || '');
+               setGender(data.profile.gender || '');
+               setLookingFor(data.profile.lookingFor || '');
+               setHeight(data.profile.height || '');
+               setMajor(data.profile.major || '');
+               setColor(data.profile.color || '');
+               setSalary(data.profile.salary || '');
+               setEthnicity(data.profile.ethnicity || '');
+               setEducation (data.profile.education || '');
+               setFrugal(data.profile.frugal || '');
+               setShowerFrequency(data.profile.showerFrequency || '');
+               setGoingOutFrequency(data.profile.goingOutFrequency || '');
+               setCodingLanguage(data.profile.codingLanguage || '');
+               setEmploymentStatus(data.profile.employmentStatus || '');
+               setCompany(data.profile.company || '');
 
 
            } catch (error) {
@@ -74,11 +95,62 @@ function Profile_Setup() {
 
        fetchProfile();
    }, []);
+
+      const handleSubmit = async (event) => {
+        event.preventDefault();
+        try {
+            const token = localStorage.getItem('token');
+            const url = "http://localhost:5555/user/profilepost";
+            const profileData = {
+                linkedin, 
+                school, 
+                location, 
+                pronouns, 
+                gender, 
+                major,  
+                salary, 
+                height, 
+                ethnicity, 
+                education, 
+                frugal, 
+                age, 
+                color, 
+                lookingFor, 
+                goingOutFrequency, 
+                showerFrequency, 
+                codingLanguage,
+                employmentStatus, 
+                company
+            }
+            const response = await fetch(url, {
+                method: "POST",
+                headers: {
+                "Content-Type": "application/json",
+                'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify(profileData),
+          });
+            const result = await response.json();
+            console.log('Response:', result);
+        
+            if (result.success) {
+                alert('Profile submitted successfully!');
+                navigate('/profile');               
+            } else {
+                alert(result.message || 'Submission failed.');
+                navigate('/profile');
+            }
+        } catch (err) {
+          console.error("An error occurred:", err);
+          alert("An error occurred. Please try again.");
+        }
+      };
+
    return (
        <div className="profile_setup-container">
            <p className="header" style = {{marginRight: 450}}>class Profile:</p>
            <p className="sub-header" style={{margin: "0px"}}>Profile.general_information</p>
-           <form>
+           <form onSubmit={handleSubmit}>
                {/* Name Input */}
                <input
                    type="text"
@@ -130,7 +202,7 @@ function Profile_Setup() {
                <input
                    type="text"
                    placeholder={profile.linkedin || 'Enter your linkedin'}
-                   value={linkedIn}
+                   value={linkedin}
                    onChange={(e) => setLinkedIn(e.target.value)}
                    className="input-field"
                />
@@ -204,12 +276,6 @@ function Profile_Setup() {
                    ))}
                </select>
 
-
-           </form>
-
-
-           <p className="sub-header" style={{margin: "0px"}}>Profile.questionnaire_answers</p>
-           <form>
                {/* Major Input */}
                <input
                    type="text"
@@ -372,8 +438,8 @@ function Profile_Setup() {
                        </label>
                    </div>
                )}
+               <button className = "button-design" type="submit">Save</button>
            </form>
-           <button type="submit">Save</button>
        </div>
    );
 }
