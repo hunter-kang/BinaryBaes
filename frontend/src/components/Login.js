@@ -48,9 +48,7 @@ function Login() {
           if (success){
             localStorage.setItem('token', jwtToken);
             localStorage.setItem('loggedInUser', name);
-            setTimeout(() => {
-                navigate('/profile')
-            }, 1000)
+            navigate('/profile');
           }
         } catch (err) {
           console.error("An error occurred:", err);

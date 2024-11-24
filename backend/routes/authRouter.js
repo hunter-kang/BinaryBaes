@@ -9,6 +9,10 @@ const router = Router();
 router.post('/login', loginValidation, login);
 router.post('/signup', signupValidation, signup);
 
+router.post('/logout', (req, res) => {
+    req.session.destroy();
+    console.log("Logout successful");
+});
 
 
 export default router;
