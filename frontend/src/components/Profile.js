@@ -39,12 +39,47 @@ export default function Profile(){
 
     return(
         <div className="profile-container">
-            <p className="profile-text">
-                #Profile Information
-            </p>
+            <p className="profile-text"> #Profile Information</p>
+            <p className="question-text">#https://linkedin.com/{linkedIn}</p>
+            <p className="prompt-text">#General info</p>
             <div className="row">
                 <div className="info-container">
-                    <p className="question-text">Snoopy = Profile():</p>
+                    <p className="question-text">{name} = Profile():</p>
+                    <p className="info-text"> • {name}.age = {age}</p>
+                    <p className="info-text"> • {name}.gender = {gender}</p>
+                    <p className="info-text"> • {name}.pronouns = {pronouns}</p>
+                    <p className="info-text"> • {name}.lookingFor = {lookingFor}</p>
+                    <p className="info-text"> • {name}.height = {height}</p>
+                    <p className="info-text"> • {name}.location = {location}</p>
+                    <p className="info-text"> • {name}.ethnicity = {ethnicity}</p>
+                    <p className="info-text"> • {name}.major = {major}</p>
+                </div>
+                <div className="img-container">
+                    <img className="photo" src={profilePic} alt="profile picture failed to load"></img>
+                    <p className="png-text">.png</p>
+                </div>
+            </div>
+            <p className="prompt-text">#All about me!</p>
+            <div className="row">
+                <div className="info-container">
+                    <p className="question-text">def __str__(self):</p>
+                    <p className="info-text"> • {name}.favorite_color = {color}</p>
+                    <p className="info-text"> • {name}.school = {school}</p>
+                    <p className="info-text"> • {name}.company = {company}</p>
+                    <p className="info-text"> • {name}.salary = {salary}</p>
+                    <p className="info-text"> • {name}.education = {education}</p>
+                    <p className="info-text"> • {name}.employmentStatus = {employmentStatus}</p>
+                </div>
+                <div className="info-container">
+                    <p className="info-text"> • {name}.frugality = {frugal}</p>
+                    <p className="info-text"> • {name}.showerFrequency = {showerFrequency}</p>
+                    <p className="info-text"> • {name}.goingOutFrequency = {goingOutFrequency}</p>
+                    <p className="info-text"> • {name}.codingLanguage = {codingLanguage}</p>
+                </div>
+            </div>
+            <div className="row">
+                <div className="info-container">
+                    <p className="question-text">{name} = Profile():</p>
                     <p className="info-text"> • Orientation: Binary Orientation: Binary Orientation: Binary Orientation: Binary </p>
                     <p className="info-text"> • Gender: Non-binary Gender: Non-binary Gender: Non-binary Gender: Non-binary </p>
                 </div>
