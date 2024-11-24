@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import "../styles/Profile_Setup.css";
 import { useNavigate } from 'react-router-dom';
+import TaskBar from '../components/TaskBar';
 import "../styles/Text.css";
 import axios from 'axios';
 
@@ -440,6 +441,7 @@ function Profile_Setup() {
                )}
                <button className = "button-design" type="submit">Save</button>
            </form>
+           <TaskBar page = "PROFLIE"/>
        </div>
    );
 }

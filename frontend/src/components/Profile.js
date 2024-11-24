@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import "../styles/Text.css";
 import "../styles/Profile.css";
 import TaskBar from '../components/TaskBar';
 import logo from '../assets/logo-design.png';
 import snoopy from '../assets/snoopy_sample_img.png'
 import snoopy2 from '../assets/snoopy.jpeg'
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Profile(){
@@ -13,7 +14,7 @@ export default function Profile(){
    const [name, setName] = useState('');
    const [location, setLocation] = useState('');
    const [school, setSchool] = useState('');
-   const [linkedIn, setLinkedIn] = useState('');
+   const [linkedin, setLinkedIn] = useState('');
    const [pronouns, setPronouns] = useState('');
    const [age, setAge] = useState('');
    const [gender, setGender] = useState('');
@@ -35,24 +36,83 @@ export default function Profile(){
 
 
    const [profilePic, setProfilePic] = useState('');
+   const [profile, setProfile] = useState({});
+   const navigate = useNavigate();
   
+   useEffect(() => {
+    const fetchProfile = async () => {
+        const token = localStorage.getItem('token'); // Replace with how you store the token
+       
+        if (!token) {
+            console.error("No auth token found");
+            return;
+        }
+
+
+        try {
+            const response = await fetch('http://localhost:5555/user/profile', {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`,  
+                    'Content-Type': 'application/json', 
+                },
+            });
+
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+
+            const data = await response.json();
+            setProfile(data.profile || {});
+            setLinkedIn(data.profile.linkedin || '');
+            setSchool(data.profile.school || '');
+            setLocation(data.profile.location || '');
+            setPronouns(data.profile.pronouns || '');
+            setAge(data.profile.age || '');
+            setGender(data.profile.gender || '');
+            setLookingFor(data.profile.lookingFor || '');
+            setHeight(data.profile.height || '');
+            setMajor(data.profile.major || '');
+            setColor(data.profile.color || '');
+            setSalary(data.profile.salary || '');
+            setEthnicity(data.profile.ethnicity || '');
+            setEducation (data.profile.education || '');
+            setFrugal(data.profile.frugal || '');
+            setShowerFrequency(data.profile.showerFrequency || '');
+            setGoingOutFrequency(data.profile.goingOutFrequency || '');
+            setCodingLanguage(data.profile.codingLanguage || '');
+            setEmploymentStatus(data.profile.employmentStatus || '');
+            setCompany(data.profile.company || '');
+
+
+        } catch (error) {
+            console.error('Error fetching profile:', error);
+        }
+    };
+
+
+    fetchProfile();
+}, []);
+
 
     return(
         <div className="profile-container">
-            <p className="profile-text"> #Profile Information</p>
-            <p className="question-text">#https://linkedin.com/{linkedIn}</p>
+            <p className="profile-text">{profile.firstname + " " + profile.lastname + "'s"} Information</p>
+            <p className="question-text">Linkedin: {profile.linkedin}</p>
             <p className="prompt-text">#General info</p>
             <div className="row">
                 <div className="info-container">
                     <p className="question-text">{name} = Profile():</p>
-                    <p className="info-text"> • {name}.age = {age}</p>
-                    <p className="info-text"> • {name}.gender = {gender}</p>
-                    <p className="info-text"> • {name}.pronouns = {pronouns}</p>
-                    <p className="info-text"> • {name}.lookingFor = {lookingFor}</p>
-                    <p className="info-text"> • {name}.height = {height}</p>
-                    <p className="info-text"> • {name}.location = {location}</p>
-                    <p className="info-text"> • {name}.ethnicity = {ethnicity}</p>
-                    <p className="info-text"> • {name}.major = {major}</p>
+                    <p className="info-text"> • {name}.age = {profile.age}</p>
+                    <p className="info-text"> • {name}.gender = {profile.gender}</p>
+                    <p className="info-text"> • {name}.pronouns = {profile.pronouns}</p>
+                    <p className="info-text"> • {name}.lookingFor = {profile.lookingFor}</p>
+                    <p className="info-text"> • {name}.height = {profile.height}</p>
+                    <p className="info-text"> • {name}.location = {profile.location}</p>
+                    <p className="info-text"> • {name}.ethnicity = {profile.ethnicity}</p>
+                    <p className="info-text"> • {name}.major = {profile.major}</p>
                 </div>
                 <div className="img-container">
                     <img className="photo" src={profilePic} alt="profile picture failed to load"></img>
@@ -63,18 +123,18 @@ export default function Profile(){
             <div className="row">
                 <div className="info-container">
                     <p className="question-text">def __str__(self):</p>
-                    <p className="info-text"> • {name}.favorite_color = {color}</p>
-                    <p className="info-text"> • {name}.school = {school}</p>
-                    <p className="info-text"> • {name}.company = {company}</p>
-                    <p className="info-text"> • {name}.salary = {salary}</p>
-                    <p className="info-text"> • {name}.education = {education}</p>
-                    <p className="info-text"> • {name}.employmentStatus = {employmentStatus}</p>
+                    <p className="info-text"> • {name}.favorite_color = {profile.color}</p>
+                    <p className="info-text"> • {name}.school = {profile.school}</p>
+                    <p className="info-text"> • {name}.company = {profile.company}</p>
+                    <p className="info-text"> • {name}.salary = {profile.salary}</p>
+                    <p className="info-text"> • {name}.education = {profile.education}</p>
+                    <p className="info-text"> • {name}.employmentStatus = {profile.employmentStatus}</p>
                 </div>
                 <div className="info-container">
-                    <p className="info-text"> • {name}.frugality = {frugal}</p>
-                    <p className="info-text"> • {name}.showerFrequency = {showerFrequency}</p>
-                    <p className="info-text"> • {name}.goingOutFrequency = {goingOutFrequency}</p>
-                    <p className="info-text"> • {name}.codingLanguage = {codingLanguage}</p>
+                    <p className="info-text"> • {name}.frugality = {profile.frugal}</p>
+                    <p className="info-text"> • {name}.showerFrequency = {profile.showerFrequency}</p>
+                    <p className="info-text"> • {name}.goingOutFrequency = {profile.goingOutFrequency}</p>
+                    <p className="info-text"> • {name}.codingLanguage = {profile.codingLanguage}</p>
                 </div>
             </div>
             <div className="row">
