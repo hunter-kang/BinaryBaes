@@ -48,7 +48,9 @@ function Login() {
           if (success){
             localStorage.setItem('token', jwtToken);
             localStorage.setItem('loggedInUser', name);
-            navigate('/profile');
+            if(!!localStorage.getItem('token')){
+              navigate('/profile');
+            }
           }
         } catch (err) {
           console.error("An error occurred:", err);
