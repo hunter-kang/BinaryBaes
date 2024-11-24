@@ -6,12 +6,24 @@ import "../styles/Text.css";
 const TaskBar = ({page}) => {
     const navigate = useNavigate();
 
+    function handleLogout() {
+
+        fetch("http://localhost:5555/auth/logout") 
+      
+          .then(() => {
+            localStorage.setItem('token', null);
+            localStorage.removeItem('token');
+            navigate('/');
+          });
+      
+    }
+
     const taskBarClick = (buttonName) => {
         if (buttonName === "home") navigate('/Home');
         else if (buttonName === "profile") navigate('/Profile');
         else if (buttonName === "matches") navigate('/Matches');
         else if (buttonName === "settings") navigate('/Profile_Setup');
-        else if (buttonName === "logout") navigate('/');
+        //else if (buttonName === "logout") navigate('/');
     };
 
     return (
@@ -30,9 +42,7 @@ const TaskBar = ({page}) => {
           <button className="button-text-design" onClick={() => taskBarClick("settings")} style={{ marginLeft: 220 }}>
               SETTINGS
           </button>
-          <button className="button-text-design" onClick={() => taskBarClick("logout")} style={{ marginLeft: 220 }}>
-              LOGOUT
-          </button>
+          <button className="button-text-design" onClick={handleLogout} style={{ marginLeft: 220 }}>LOGOUT</button>
         </div>
       </div>
     );
