@@ -104,15 +104,15 @@ export default function Profile(){
             <p className="prompt-text">#General info</p>
             <div className="row">
                 <div className="info-container">
-                    <p className="question-text">{name} = Profile():</p>
-                    <p className="info-text"> • {name}.age = {profile.age}</p>
-                    <p className="info-text"> • {name}.gender = {profile.gender}</p>
-                    <p className="info-text"> • {name}.pronouns = {profile.pronouns}</p>
-                    <p className="info-text"> • {name}.lookingFor = {profile.lookingFor}</p>
-                    <p className="info-text"> • {name}.height = {profile.height}</p>
-                    <p className="info-text"> • {name}.location = {profile.location}</p>
-                    <p className="info-text"> • {name}.ethnicity = {profile.ethnicity}</p>
-                    <p className="info-text"> • {name}.major = {profile.major}</p>
+                    <p className="question-text">{profile.firstname} = Profile():</p>
+                    <p className="info-text"> • {profile.firstname}.age = {profile.age}</p>
+                    <p className="info-text"> • {profile.firstname}.gender = {profile.gender}</p>
+                    <p className="info-text"> • {profile.firstname}.pronouns = {profile.pronouns}</p>
+                    <p className="info-text"> • {profile.firstname}.lookingFor = {profile.lookingFor}</p>
+                    <p className="info-text"> • {profile.firstname}.height = {profile.height}</p>
+                    <p className="info-text"> • {profile.firstname}.location = {profile.location}</p>
+                    <p className="info-text"> • {profile.firstname}.ethnicity = {profile.ethnicity}</p>
+                    <p className="info-text"> • {profile.firstname}.major = {profile.major}</p>
                 </div>
                 <div className="img-container">
                     <img className="photo" src={profilePic} alt="profile picture failed to load"></img>
@@ -123,23 +123,23 @@ export default function Profile(){
             <div className="row">
                 <div className="info-container">
                     <p className="question-text">def __str__(self):</p>
-                    <p className="info-text"> • {name}.favorite_color = {profile.color}</p>
-                    <p className="info-text"> • {name}.school = {profile.school}</p>
-                    <p className="info-text"> • {name}.company = {profile.company}</p>
-                    <p className="info-text"> • {name}.salary = {profile.salary}</p>
-                    <p className="info-text"> • {name}.education = {profile.education}</p>
-                    <p className="info-text"> • {name}.employmentStatus = {profile.employmentStatus}</p>
+                    <p className="info-text"> • {profile.firstname}.favorite_color = {profile.color}</p>
+                    <p className="info-text"> • {profile.firstname}.school = {profile.school}</p>
+                    <p className="info-text"> • {profile.firstname}.company = {profile.company}</p>
+                    <p className="info-text"> • {profile.firstname}.salary = {profile.salary}</p>
+                    <p className="info-text"> • {profile.firstname}.education = {profile.education}</p>
+                    <p className="info-text"> • {profile.firstname}.employmentStatus = {profile.employmentStatus}</p>
                 </div>
                 <div className="info-container">
-                    <p className="info-text"> • {name}.frugality = {profile.frugal}</p>
-                    <p className="info-text"> • {name}.showerFrequency = {profile.showerFrequency}</p>
-                    <p className="info-text"> • {name}.goingOutFrequency = {profile.goingOutFrequency}</p>
-                    <p className="info-text"> • {name}.codingLanguage = {profile.codingLanguage}</p>
+                    <p className="info-text"> • {profile.firstname}.frugality = {profile.frugal}</p>
+                    <p className="info-text"> • {profile.firstname}.showerFrequency = {profile.showerFrequency}</p>
+                    <p className="info-text"> • {profile.firstname}.goingOutFrequency = {profile.goingOutFrequency}</p>
+                    <p className="info-text"> • {profile.firstname}.codingLanguage = {profile.codingLanguage}</p>
                 </div>
             </div>
             <div className="row">
                 <div className="info-container">
-                    <p className="question-text">{name} = Profile():</p>
+                    <p className="question-text">{profile.firstname} = Profile():</p>
                     <p className="info-text"> • Orientation: Binary Orientation: Binary Orientation: Binary Orientation: Binary </p>
                     <p className="info-text"> • Gender: Non-binary Gender: Non-binary Gender: Non-binary Gender: Non-binary </p>
                 </div>
