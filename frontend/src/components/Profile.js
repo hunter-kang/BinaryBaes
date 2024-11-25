@@ -101,36 +101,36 @@ export default function Profile(){
             <div className="row">
                 <div className="info-container">
                     <p className="question-text">{profile.firstname} = Profile():</p>
-                    <p className="info-text"> • {profile.firstname}.age = {profile.age}</p>
-                    <p className="info-text"> • {profile.firstname}.gender = {profile.gender}</p>
-                    <p className="info-text"> • {profile.firstname}.pronouns = {profile.pronouns}</p>
-                    <p className="info-text"> • {profile.firstname}.lookingFor = {profile.lookingFor}</p>
-                    <p className="info-text"> • {profile.firstname}.height = {profile.height}</p>
-                    <p className="info-text"> • {profile.firstname}.location = {profile.location}</p>
-                    <p className="info-text"> • {profile.firstname}.ethnicity = {profile.ethnicity}</p>
-                    <p className="info-text"> • {profile.firstname}.major = {profile.major}</p>
+                    {profile.age ? <p className="info-text"> • {profile.firstname}.age = {profile.age}</p> : null}
+                    {profile.gender ? <p className="info-text"> • {profile.firstname}.gender = {profile.gender}</p> : null}
+                    {profile.pronouns ? <p className="info-text"> • {profile.firstname}.pronouns = {profile.pronouns}</p> : null}
+                    {profile.lookingFor ? <p className="info-text"> • {profile.firstname}.lookingFor = {profile.lookingFor}</p> : null}
+                    {profile.height ? <p className="info-text"> • {profile.firstname}.height = {profile.height}</p> : null}
+                    {profile.location ? <p className="info-text"> • {profile.firstname}.location = {profile.location}</p> : null}
+                    {profile.ethnicity ? <p className="info-text"> • {profile.firstname}.ethnicity = {profile.ethnicity}</p> : null}
+                    {profile.major ? <p className="info-text"> • {profile.firstname}.major = {profile.major}</p> : null}
                 </div>
                 <div className="img-container">
-                    <img className="photo" src={profilePic} alt="profile picture failed to load"></img>
-                    <p className="png-text">.png</p>
+                    {profilePic ? <img className="photo" src={profilePic} alt="profile picture failed to load"></img> : null}
+                    {profilePic ? <p className="png-text">.png</p> : null}
                 </div>
             </div>
             <p className="prompt-text">#All about me!</p>
             <div className="row">
                 <div className="info-container">
                     <p className="question-text">def __str__(self):</p>
-                    <p className="info-text"> • {profile.firstname}.favorite_color = {profile.color}</p>
-                    <p className="info-text"> • {profile.firstname}.school = {profile.school}</p>
-                    <p className="info-text"> • {profile.firstname}.company = {profile.company}</p>
-                    <p className="info-text"> • {profile.firstname}.salary = {profile.salary}</p>
-                    <p className="info-text"> • {profile.firstname}.education = {profile.education}</p>
-                    <p className="info-text"> • {profile.firstname}.employmentStatus = {profile.employmentStatus}</p>
+                    {profile.color ? <p className="info-text"> • {profile.firstname}.favorite_color = {profile.color}</p> : null}
+                    {profile.school ? <p className="info-text"> • {profile.firstname}.school = {profile.school}</p> : null}
+                    {profile.company ? <p className="info-text"> • {profile.firstname}.company = {profile.company}</p> : null}
+                    {profile.salary ? <p className="info-text"> • {profile.firstname}.salary = {profile.salary}</p> : null}
+                    {profile.education ? <p className="info-text"> • {profile.firstname}.education = {profile.education}</p> : null}
+                    {profile.employmentStatus ? <p className="info-text"> • {profile.firstname}.employmentStatus = {profile.employmentStatus}</p> : null}
                 </div>
                 <div className="info-container">
-                    <p className="info-text"> • {profile.firstname}.frugality = {profile.frugal}</p>
-                    <p className="info-text"> • {profile.firstname}.showerFrequency = {profile.showerFrequency}</p>
-                    <p className="info-text"> • {profile.firstname}.goingOutFrequency = {profile.goingOutFrequency}</p>
-                    <p className="info-text"> • {profile.firstname}.codingLanguage = {profile.codingLanguage}</p>
+                    {profile.frugal ? <p className="info-text"> • {profile.firstname}.frugality = {profile.frugal}</p> : null}
+                    {profile.showerFrequency ? <p className="info-text"> • {profile.firstname}.showerFrequency = {profile.showerFrequency}</p> : null}
+                    {profile.goingOutFrequency ? <p className="info-text"> • {profile.firstname}.goingOutFrequency = {profile.goingOutFrequency}</p> : null}
+                    {profile.codingLanguage ? <p className="info-text"> • {profile.firstname}.codingLanguage = {profile.codingLanguage}</p> : null}
                 </div>
             </div>
             {/*<TaskBar page = "PROFLIE"/>*/}
