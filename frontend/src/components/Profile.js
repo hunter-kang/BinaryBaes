@@ -96,7 +96,7 @@ export default function Profile(){
     return(
         <div className="profile-container">
             <p className="profile-text">{profile.firstname + " " + profile.lastname + "'s"} Information</p>
-            <p className="question-text">Linkedin: {profile.linkedin}</p>
+            <p className="question-text">https://linkedin.com/{profile.linkedin}</p>
             <p className="prompt-text">#General info</p>
             <div className="row">
                 <div className="info-container">

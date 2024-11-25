@@ -149,9 +149,9 @@ function Profile_Setup() {
 
    return (
        <div className="profile_setup-container">
-           <p className="header" style = {{marginRight: 450}}>class Profile:</p>
-           <p className="sub-header" style={{margin: "0px"}}>Profile.general_information</p>
-           <form onSubmit={handleSubmit}>
+           <p className="header" style = {{marginRight: 450, marginTop: 150}}>class Profile:</p>
+           <p className="sub-header" style={{margin: "0px", marginRight: 480}}>Profile.general_information</p>
+           <form onSubmit={handleSubmit} style={{marginTop: 0}}>
                {/* Name Input */}
                <input
                    type="text"
@@ -441,7 +441,7 @@ function Profile_Setup() {
                )}
                <button className = "button-design" type="submit">Save</button>
            </form>
-           <TaskBar page = "PROFLIE"/>
+           <TaskBar page = "PROFLIE_SETUP"/>
        </div>
    );
 }
