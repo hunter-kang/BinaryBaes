@@ -4,6 +4,7 @@ import "../styles/Profile_Card.css";
 import "../styles/Text.css";
 
 const Profile_Card = ( {profile, onMatchClick}) => {
+    console.log(profile.firstname)
     return (
       <div className="profile-card" style={{ marginTop: 60 }}>
         <div className="rectangle-profile">
@@ -17,10 +18,10 @@ const Profile_Card = ( {profile, onMatchClick}) => {
             {/* backend_insert_here */}
           </div>
         </div>
-        <button className="button-design" onClick={() => onMatchClick("1")}>
+        <button className="button-design" onClick={() => onMatchClick("0")}>
             0
           </button>
-        <button className="button-design" onClick={() => onMatchClick("0")} style={{ marginLeft: 100, marginTop: 20}}>
+        <button className="button-design" onClick={() => onMatchClick("1")} style={{ marginLeft: 100, marginTop: 20}}>
             1
         </button>
       </div>

@@ -4,11 +4,11 @@ import "../styles/Connect_Card.css";
 import "../styles/Text.css";
 
 
-const Connect_Card = ({ profile, onMatchClick }) => {
+const Connect_Card = ({ profile, onConnectClick}) => {
   return (
     <button
       className="rectangle-connect"
-      onClick={() => onMatchClick(profile.name)}
+      onClick={() => onConnectClick(profile.name)}
     >
       <span className="small-text">{profile.linkedIn}</span>
       <span>{profile.name}</span> 
