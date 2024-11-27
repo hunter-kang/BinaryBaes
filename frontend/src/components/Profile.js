@@ -133,7 +133,7 @@ export default function Profile(){
                     {profile.codingLanguage ? <p className="info-text"> • {profile.firstname}.codingLanguage = {profile.codingLanguage}</p> : null}
                 </div>
             </div>
-            {/*<TaskBar page = "PROFLIE"/>*/}
+            <TaskBar page = "PROFLIE"/>
         </div>
     );
 }

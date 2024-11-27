@@ -441,7 +441,7 @@ function Profile_Setup() {
                )}
                <button className = "button-design" type="submit">Save</button>
            </form>
-           <TaskBar page = "PROFLIE_SETUP"/>
+           <TaskBar page = "SETTINGS"/>
        </div>
    );
 }

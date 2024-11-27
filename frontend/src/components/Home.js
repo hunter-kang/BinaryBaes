@@ -7,6 +7,7 @@ import Profile_Card from '../components/Profile_Card';
 function Home() {
     // backend logic to load in profiles here suggest doing random
     const [users, setUsers] = useState([])
+    const [loading, setLoading] = useState(true);
 
     const fetchUsers = async () =>{
         try{
@@ -24,6 +25,7 @@ function Home() {
             
             if (otherUsers.success) {
                 setUsers(otherUsers)
+                setLoading(false);
             } else {
                 alert(otherUsers.message || 'Submission failed.');
             }
@@ -33,6 +35,7 @@ function Home() {
         catch (err){
             console.error("An error occurred:", err);
             alert("An error occurred. Please try again later.");
+            setLoading(false);
         }
 
     }
@@ -46,7 +49,7 @@ function Home() {
 
 
     const [profiles, setProfiles] = useState([ 
-        { Name: "WoodStock", Age: "Unknown", Height: "0.25ft", School: "Unschool", Employment: "Unemployed" },
+        { firstName: "WoodStock", age: "Unknown", height: "0.25ft", school: "Unschool", employmentStatus: "Unemployed" },
         { Name: "Clifford", Age: "50", Height: "25ft", School: "idk", Employment: "Unemployed"}
     ]);
     const [isAnimating, setIsAnimating] = useState(false);
@@ -56,18 +59,23 @@ function Home() {
         setIsAnimating(true);
         setTimeout(() => {
             setIsAnimating(false);
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % profiles.length);
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % users.data.length);
         }, 500);  // 500ms (same as your animation duration)
 
         if (buttonName === "1") console.log("match");
+        
         //backend save to database of all the matches here
         else if (buttonName === "0") console.log("not match");
     };
+
+    if (loading) {
+        return <div>Loading...</div>;
+    }
     return (
         <div className="home-container">
             <div className={`profile-card-container ${isAnimating ? 'animate-exit' : ''}`}>
                 <Profile_Card
-                    profile={profiles[currentIndex]}
+                    profile={users.data[currentIndex]}
                     onMatchClick={matchClick}
                 />
             </div>
