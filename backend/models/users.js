@@ -97,6 +97,10 @@ const UserSchema = new Schema({
     },
     company:{
         type: String
+    },
+    matches: {
+        type: [String],
+        default: []
     }
 })
 

@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import {ensureAuthenticated} from '../middleware/auth.js'
-import { profile, profilepost, questionnaire,home} from '../controllers/profileController.js';
+import { profile, profilepost, questionnaire,home, saveMatches, getMatches} from '../controllers/profileController.js';
 import { wordsearch, categoryFilter} from '../controllers/dateIdeaController.js';
 
 const router = Router();
@@ -9,6 +9,8 @@ const router = Router();
 router.get('/profile', ensureAuthenticated, profile);
 router.post('/profilepost', ensureAuthenticated, profilepost);
 router.post('/questionnaire', ensureAuthenticated, questionnaire);
+router.post('/saveMatches', ensureAuthenticated, saveMatches)
+router.get('/getMatches', ensureAuthenticated, getMatches)
 router.get('/home', ensureAuthenticated, home)
 router.get('/categoryFilter', categoryFilter)
 router.get('/wordsearch', wordsearch)
