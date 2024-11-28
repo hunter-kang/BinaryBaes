@@ -52,6 +52,54 @@ const questionnaire = async(req, res) => {
        })
    }
 }
+
+const saveMatches = async (req, res) => {
+    try {
+        if (!req.user || !req.user._id) {
+            return res.status(401).json({
+                message: "Unauthorized access",
+                success: false,
+            });
+        }
+
+        const { matches } = req.body; // Array of match IDs or data
+        const userId = req.user._id;
+
+        if (!matches || !Array.isArray(matches)) {
+            return res.status(400).json({
+                message: "Invalid matches data provided",
+                success: false,
+            });
+        }
+
+        // Update the user's matches by appending new matches
+        const updatedUser = await UserModel.findByIdAndUpdate(
+            userId,
+            { $addToSet: { matches: { $each: matches } } }, // Avoids duplicate matches
+            { new: true }
+        );
+
+        if (!updatedUser) {
+            return res.status(404).json({
+                message: "User not found",
+                success: false,
+            });
+        }
+
+        res.status(200).json({
+            message: "Matches updated successfully",
+            success: true,
+            matches: updatedUser.matches, // Return updated matches
+        });
+    } catch (err) {
+        console.error("Error saving matches:", err);
+        res.status(500).json({
+            message: "Internal server error",
+            success: false,
+        });
+    }
+};
+
 //get requests here
 
 const home = async(req, res) =>{
@@ -224,5 +272,37 @@ const profilepost = async(req, res) => {
     }
  }
 
+ const getMatches = async (req, res) => {
+    try {
+        if (!req.user || !req.user._id) {
+            return res.status(401).json({
+                message: "Unauthorized access",
+                success: false,
+            });
+        }
 
-export { questionnaire, profile, home, profilepost};
+        const userId = req.user._id;
+
+        const user = await UserModel.findById(userId, 'matches');
+        if (!user) {
+            return res.status(404).json({
+                message: "User not found",
+                success: false,
+            });
+        }
+
+        res.status(200).json({
+            message: "Matches retrieved successfully",
+            success: true,
+            matches: user.matches, // Return the matches
+        });
+    } catch (err) {
+        console.error("Error retrieving matches:", err);
+        res.status(500).json({
+            message: "Internal server error",
+            success: false,
+        });
+    }
+};
+
+export { questionnaire, profile, home, profilepost, getMatches, saveMatches};

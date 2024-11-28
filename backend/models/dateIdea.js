@@ -15,7 +15,5 @@ const dateIdeaSchema = new Schema({
 })
 
 const DateIdeas = mongoose.model('DateIdeas', dateIdeaSchema, 'DateIdeas')
-
-
 export default DateIdeas;
 

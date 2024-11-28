@@ -27,10 +27,6 @@ app.get('/test', async (request, response) => {
         console.log("Request received at /test");
         console.log("ATLAS_URI:", process.env.ATLAS_URI);
 
-        // Fetch all documents from the DateIdeas collection
-        const dateIdeas = await DateIdeas.find();
-
-        console.log("Date Ideas fetched:", dateIdeas);
 
         // Respond with the fetched data
         response.status(200).json({

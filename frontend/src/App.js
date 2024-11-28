@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import useLoginState from './LoginState';  
+import useLoginState from './LoginState'; 
 import './App.css';
 import Signup from './components/Signup';
 import Login from './components/Login';
@@ -8,9 +8,11 @@ import Profile_Setup from './components/Profile_Setup';
 import Questionnaire from './components/Questionnaire';
 import Home from './components/Home';
 import Search from './components/Search';
+import Matches from './components/Matches';
 
 function App() {
-  const isLoggedIn = useLoginState(); 
+ const isLoggedIn = useLoginState();
+
 
   return (
     <Router>
@@ -21,17 +23,19 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/search"  element={<Search />} />
           {useLoginState() && (
-            <>
-              <Route path="/questionnaire" element={<Questionnaire />} />
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/profile_setup" element={<Profile_Setup />} />
+           <>
+             <Route path="/questionnaire" element={<Questionnaire />} />
+             <Route path="/profile" element={<Profile />} />
+             <Route path="/profile_setup" element={<Profile_Setup />} />
+             <Route path="/matches" element={<Matches />} />
             </>
-          )}
-          {!useLoginState() && <Route path="*" element={<Navigate to="/" />} />}
-        </Routes>
-      </div>
-    </Router>
-  );
+         )} 
+          {!useLoginState() && <Route path="*" element={<Navigate to="/" />} />} 
+       </Routes>
+     </div>
+   </Router>
+ );
 }
+
 
 export default App;

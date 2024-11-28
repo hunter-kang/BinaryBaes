@@ -2,16 +2,12 @@ import { useState, useEffect } from 'react';
 import "../styles/Text.css";
 import "../styles/Profile.css";
 import TaskBar from '../components/TaskBar';
-import logo from '../assets/logo-design.png';
-import snoopy from '../assets/snoopy_sample_img.png'
-import snoopy2 from '../assets/snoopy.jpeg'
 import { useNavigate } from 'react-router-dom';
 
 
 export default function Profile(){
 
 
-   const [name, setName] = useState('');
    const [location, setLocation] = useState('');
    const [school, setSchool] = useState('');
    const [linkedin, setLinkedIn] = useState('');
@@ -100,98 +96,44 @@ export default function Profile(){
     return(
         <div className="profile-container">
             <p className="profile-text">{profile.firstname + " " + profile.lastname + "'s"} Information</p>
-            <p className="question-text">Linkedin: {profile.linkedin}</p>
+            <p className="question-text">https://linkedin.com/{profile.linkedin}</p>
             <p className="prompt-text">#General info</p>
             <div className="row">
                 <div className="info-container">
-                    <p className="question-text">{name} = Profile():</p>
-                    <p className="info-text"> • {name}.age = {profile.age}</p>
-                    <p className="info-text"> • {name}.gender = {profile.gender}</p>
-                    <p className="info-text"> • {name}.pronouns = {profile.pronouns}</p>
-                    <p className="info-text"> • {name}.lookingFor = {profile.lookingFor}</p>
-                    <p className="info-text"> • {name}.height = {profile.height}</p>
-                    <p className="info-text"> • {name}.location = {profile.location}</p>
-                    <p className="info-text"> • {name}.ethnicity = {profile.ethnicity}</p>
-                    <p className="info-text"> • {name}.major = {profile.major}</p>
+                    <p className="question-text">{profile.firstname} = Profile():</p>
+                    {profile.age ? <p className="info-text"> • {profile.firstname}.age = {profile.age}</p> : null}
+                    {profile.gender ? <p className="info-text"> • {profile.firstname}.gender = {profile.gender}</p> : null}
+                    {profile.pronouns ? <p className="info-text"> • {profile.firstname}.pronouns = {profile.pronouns}</p> : null}
+                    {profile.lookingFor ? <p className="info-text"> • {profile.firstname}.lookingFor = {profile.lookingFor}</p> : null}
+                    {profile.height ? <p className="info-text"> • {profile.firstname}.height = {profile.height}</p> : null}
+                    {profile.location ? <p className="info-text"> • {profile.firstname}.location = {profile.location}</p> : null}
+                    {profile.ethnicity ? <p className="info-text"> • {profile.firstname}.ethnicity = {profile.ethnicity}</p> : null}
+                    {profile.major ? <p className="info-text"> • {profile.firstname}.major = {profile.major}</p> : null}
                 </div>
                 <div className="img-container">
-                    <img className="photo" src={profilePic} alt="profile picture failed to load"></img>
-                    <p className="png-text">.png</p>
+                    {profilePic ? <img className="photo" src={profilePic} alt="profile picture failed to load"></img> : null}
+                    {profilePic ? <p className="png-text">.png</p> : null}
                 </div>
             </div>
             <p className="prompt-text">#All about me!</p>
             <div className="row">
                 <div className="info-container">
                     <p className="question-text">def __str__(self):</p>
-                    <p className="info-text"> • {name}.favorite_color = {profile.color}</p>
-                    <p className="info-text"> • {name}.school = {profile.school}</p>
-                    <p className="info-text"> • {name}.company = {profile.company}</p>
-                    <p className="info-text"> • {name}.salary = {profile.salary}</p>
-                    <p className="info-text"> • {name}.education = {profile.education}</p>
-                    <p className="info-text"> • {name}.employmentStatus = {profile.employmentStatus}</p>
+                    {profile.color ? <p className="info-text"> • {profile.firstname}.favorite_color = {profile.color}</p> : null}
+                    {profile.school ? <p className="info-text"> • {profile.firstname}.school = {profile.school}</p> : null}
+                    {profile.company ? <p className="info-text"> • {profile.firstname}.company = {profile.company}</p> : null}
+                    {profile.salary ? <p className="info-text"> • {profile.firstname}.salary = {profile.salary}</p> : null}
+                    {profile.education ? <p className="info-text"> • {profile.firstname}.education = {profile.education}</p> : null}
+                    {profile.employmentStatus ? <p className="info-text"> • {profile.firstname}.employmentStatus = {profile.employmentStatus}</p> : null}
                 </div>
                 <div className="info-container">
-                    <p className="info-text"> • {name}.frugality = {profile.frugal}</p>
-                    <p className="info-text"> • {name}.showerFrequency = {profile.showerFrequency}</p>
-                    <p className="info-text"> • {name}.goingOutFrequency = {profile.goingOutFrequency}</p>
-                    <p className="info-text"> • {name}.codingLanguage = {profile.codingLanguage}</p>
+                    {profile.frugal ? <p className="info-text"> • {profile.firstname}.frugality = {profile.frugal}</p> : null}
+                    {profile.showerFrequency ? <p className="info-text"> • {profile.firstname}.showerFrequency = {profile.showerFrequency}</p> : null}
+                    {profile.goingOutFrequency ? <p className="info-text"> • {profile.firstname}.goingOutFrequency = {profile.goingOutFrequency}</p> : null}
+                    {profile.codingLanguage ? <p className="info-text"> • {profile.firstname}.codingLanguage = {profile.codingLanguage}</p> : null}
                 </div>
             </div>
-            <div className="row">
-                <div className="info-container">
-                    <p className="question-text">{name} = Profile():</p>
-                    <p className="info-text"> • Orientation: Binary Orientation: Binary Orientation: Binary Orientation: Binary </p>
-                    <p className="info-text"> • Gender: Non-binary Gender: Non-binary Gender: Non-binary Gender: Non-binary </p>
-                </div>
-                <div className="answer-container">
-                </div>
-            </div>
-            <p className="prompt-text">#Prompt 1</p>
-            <div className="row">
-                <div className="info-container">
-                    <p className="question-text">def your_favorite_color():</p>
-                    <p className="info-text">mint green mint green mint green mint green mint green mint green mint green</p>
-                    <p className="info-text">sky blue sky blue sky blue sky blue sky blue sky blue sky blue sky blue </p>
-                </div>
-                <div className="img-container">
-                    <img className="photo" src={snoopy} alt="hi"></img>
-                    <p className="png-text">.png</p>
-                </div>
-            </div>
-            <p className="prompt-text">#Prompt 2</p>
-            <div className="row">
-                <div className="info-container">
-                    <p className="question-text">def your_favorite_color():</p>
-                </div>
-                <div className="info-container">
-                    <img className="photo" src={snoopy2} alt="hi"></img>
-                    <p className="png-text">.png</p>
-                </div>
-            </div>
-            <p className="prompt-text">#Prompt 3</p>
-            <div className="question-container">
-                <p className="question-text">def your_favorite_color(): def your_favorite_color(): def your_favorite_color():</p>
-                <div className="row">
-                    <div className="answer-container">
-                        <p className="info-text">mint green mint green mint green mint green mint green mint green mint green</p>
-                        <p className="info-text">sky blue sky blue sky blue sky blue sky blue sky blue sky blue sky blue </p>
-                    </div>
-                    <div className="answer-container">
-                        <img className="photo" src={snoopy2} alt="hi"></img>
-                        <p className="png-text">.png</p>
-                    </div>
-                </div>
-            </div>
-            <p className="prompt-text">#Prompt 4</p>
-            <div className="row">
-                <div className="answer-container">
-                    <img className="photo" src={snoopy2} alt="hi"></img>
-                    <p className="png-text">.png</p>
-                </div>
-                <div className="answer-container">
-                </div>
-            </div>
-            {/*<TaskBar page = "PROFLIE"/>*/}
+            <TaskBar page = "PROFLIE"/>
         </div>
     );
 }

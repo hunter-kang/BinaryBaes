@@ -63,7 +63,7 @@ function Login() {
       };
 
     return (
-        <div className="background-container">
+        <div className="background-login">
             <img src={gif_login} className="gif_login" alt="yo mama" />
             <div className="login-container">
                 <p className="header" style = {{marginTop: 0}}>Binary Baes:</p>

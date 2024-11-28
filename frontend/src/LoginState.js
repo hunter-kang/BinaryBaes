@@ -5,7 +5,6 @@ export const useLoginState = () => {
 
   useEffect(() => {
     setIsLoggedIn(!!(localStorage.getItem('token'))); 
-
   }, []);
 
   return isLoggedIn;
