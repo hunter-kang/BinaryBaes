@@ -7,20 +7,21 @@ import Profile from './components/Profile';
 import Profile_Setup from './components/Profile_Setup';
 import Questionnaire from './components/Questionnaire';
 import Home from './components/Home';
+import Search from './components/Search';
 import Matches from './components/Matches';
-
 
 function App() {
  const isLoggedIn = useLoginState();
 
 
- return (
-   <Router>
-     <div className="App">
-       <Routes>
-         <Route path="/" element={<Login />} />
-         <Route path="/signup" element={<Signup />} />
-         <Route path="/home" element={<Home />} />
+  return (
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/search"  element={<Search />} />
           {useLoginState() && (
            <>
              <Route path="/questionnaire" element={<Questionnaire />} />
