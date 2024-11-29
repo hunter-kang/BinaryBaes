@@ -118,14 +118,14 @@ function Signup() {
         <p className="small-text" style={{marginTop: 30}}>Password:</p>
         <input className="input-signup"
                     name="password1"
-                    type="text"
+                    type="password"
                     value={password1}
                     onChange={handleChange}
         />
         <p className="small-text" style={{marginTop: 30}}>Re-enter password:</p>
         <input className="input-signup"
                     name="password2"
-                    type="text"
+                    type="password"
                     value={password2}
                     onChange={handleChange}
         />
