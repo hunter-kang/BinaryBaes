@@ -44,7 +44,7 @@ function MatchingQuestions() {
         
             if (result.success) {
                 alert('Questionnaire submitted successfully!');
-                navigate('/profile');
+                navigate('/profile_setup');
             } else {
                 alert(result.message || 'Submission failed.');
             }
