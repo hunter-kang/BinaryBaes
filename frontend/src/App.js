@@ -21,13 +21,13 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/search"  element={<Search />} />
           {useLoginState() && (
            <>
              <Route path="/questionnaire" element={<Questionnaire />} />
              <Route path="/profile" element={<Profile />} />
              <Route path="/profile_setup" element={<Profile_Setup />} />
              <Route path="/matches" element={<Matches />} />
+             <Route path="/search" element={<Search />} />
             </>
          )} 
           {!useLoginState() && <Route path="*" element={<Navigate to="/" />} />} 

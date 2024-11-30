@@ -37,6 +37,10 @@
     font-size: 40.0px
 }
 
+.centered {
+    justify-items: center;      /* Center text if needed */
+  }  
+
 .button-text-design{
     background: none;          /* Remove button background */
     border: none;              /* Remove button border */
