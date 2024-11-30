@@ -23,6 +23,7 @@ const TaskBar = ({page}) => {
         else if (buttonName === "profile") navigate('/Profile');
         else if (buttonName === "matches") navigate('/Matches');
         else if (buttonName === "settings") navigate('/Profile_Setup');
+        else if (buttonName === "search") navigate('/Search');
         //else if (buttonName === "logout") navigate('/');
     };
 
@@ -33,16 +34,19 @@ const TaskBar = ({page}) => {
           <button className="button-text-design" onClick={() => taskBarClick("home")} style={{ marginLeft: 60 }}>
               HOME
           </button>
-          <button className="button-text-design" onClick={() => taskBarClick("profile")} style={{ marginLeft: 220 }}>
+          <button className="button-text-design" onClick={() => taskBarClick("profile")} style={{ marginLeft: 170 }}>
               PROFILE
           </button>
-          <button className="button-text-design" onClick={() => taskBarClick("matches")} style={{ marginLeft: 220 }}>
+          <button className="button-text-design" onClick={() => taskBarClick("matches")} style={{ marginLeft: 170 }}>
               MATCHES
           </button>
-          <button className="button-text-design" onClick={() => taskBarClick("settings")} style={{ marginLeft: 220 }}>
+          <button className="button-text-design" onClick={() => taskBarClick("settings")} style={{ marginLeft: 170 }}>
               SETTINGS
           </button>
-          <button className="button-text-design" onClick={handleLogout} style={{ marginLeft: 220 }}>LOGOUT</button>
+          <button className="button-text-design" onClick={() => taskBarClick("search")} style={{ marginLeft: 170 }}>
+              SEARCH
+          </button>
+          <button className="button-text-design" onClick={handleLogout} style={{ marginLeft: 170 }}>LOGOUT</button>
         </div>
       </div>
     );
