@@ -8,10 +8,10 @@ const Connect_Card = ({ profile, onConnectClick}) => {
   return (
     <button
       className="rectangle-connect"
-      onClick={() => onConnectClick(profile.name)}
+      onClick={() => onConnectClick(profile._id)}
     >
-      <span className="small-text">{profile.linkedIn}</span>
-      <span>{profile.name}</span> 
+      <span className="small-text">{profile.firstname}</span>
+      <span>{profile.linkedIn}</span> 
     </button>
   );
 };

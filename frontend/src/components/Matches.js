@@ -44,17 +44,17 @@ function Matches() {
         { name: "John Doe", linkedIn: "john_doe" },
         { name: "Jane Smith", linkedIn: "jane_smith" },
         { name: "Sam Wilson", linkedIn: "sam_wilson" },
-        { name: "Hello Wilson", linkedIn: "YO_wilson" },
-        { name: "Hello Wilson", linkedIn: "YO_wilson" },
-        { name: "Hello Wilson", linkedIn: "YO_wilson" },
+        { name: "Hello Wilso", linkedIn: "YO_wilson" },
+        { name: "Hello Wils", linkedIn: "YO_wilson" },
+        { name: "Hello Wil", linkedIn: "YO_wilson" },
         { name: "Hello Wilson", linkedIn: "YO_wilson" }
       ];
    return (
        <div className="background-container">
            <p className="header" style={{marginTop: 30, marginRight: 640}} >Connect</p>
            <div className = "dashed-rectangle">
-            {fakeProfiles.map((profile) => (
-            <Connect_Card key={profile.name} profile={profile} onConnectClick={handleConnectClick} /> ))}
+            {matches.map((profile) => (
+            <Connect_Card key={profile.firstname} profile={profile} onConnectClick={handleConnectClick} /> ))}
             </div>
            <TaskBar page="Matches" />
        </div>

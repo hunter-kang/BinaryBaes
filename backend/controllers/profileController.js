@@ -3,7 +3,6 @@ import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 
 
-
 const questionnaire = async(req, res) => {
    try{
        const{goingOutFrequency, salary, showerFrequency, codingLanguage, employmentStatus, company} = req.body;
@@ -52,7 +51,6 @@ const questionnaire = async(req, res) => {
        })
    }
 }
-
 const saveMatches = async (req, res) => {
     try {
         if (!req.user || !req.user._id) {
@@ -71,11 +69,10 @@ const saveMatches = async (req, res) => {
                 success: false,
             });
         }
-
         // Update the user's matches by appending new matches
         const updatedUser = await UserModel.findByIdAndUpdate(
             userId,
-            { $addToSet: { matches: { $each: matches } } }, // Avoids duplicate matches
+            { $addToSet: { matches: { $each: matches } } },
             { new: true }
         );
 
