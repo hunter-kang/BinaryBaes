@@ -98,10 +98,12 @@ const UserSchema = new Schema({
     company:{
         type: String
     },
-    matches: {
-        type: [String],
-        default: []
+    matches: [
+    {
+      _id: { type: String, required: true },  // or String, depending on your id type
+      firstname: { type: String, required: true },
     }
+  ]
 })
 
 const UserModel = mongoose.model('auth', UserSchema)
