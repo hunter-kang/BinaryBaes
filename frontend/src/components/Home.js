@@ -59,6 +59,10 @@ function Home() {
     const matchClick = async (buttonName) => {
         setIsAnimating(true);
         if (buttonName === "1"){
+            const matchData = {
+                _id: users.data[currentIndex]._id,  // Save only the MongoDB id (or user id)
+                firstname: users.data[currentIndex].firstname  // Save the first name
+              };
             console.log("match");
             console.log(users.data[currentIndex]._id);
             try {
@@ -70,7 +74,7 @@ function Home() {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                matches: [users.data[currentIndex]._id]
+                matches: [matchData]
             })});
 
         const result = await response.json();

@@ -44,10 +44,10 @@ function Matches() {
         { name: "John Doe", linkedIn: "john_doe" },
         { name: "Jane Smith", linkedIn: "jane_smith" },
         { name: "Sam Wilson", linkedIn: "sam_wilson" },
-        { name: "Hello Wilson", linkedIn: "YO_wilson" },
-        { name: "Hello Wilson", linkedIn: "YO_wilson" },
-        { name: "Hello Wilson", linkedIn: "YO_wilson" },
-        { name: "Hello Wilson", linkedIn: "YO_wilson" }
+        { name: "Hello Wilso", linkedIn: "YO_wilson" },
+        { name: "Hello Wils", linkedIn: "YO_wilson" },
+        { name: "Hello Wil", linkedIn: "YO_wilson" },
+        { name: "Hello Wi", linkedIn: "YO_wilson" }
       ];
    return (
        <div className="background-container">
