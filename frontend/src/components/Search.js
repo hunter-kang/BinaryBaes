@@ -10,29 +10,33 @@ export default function Search(){
         console.log(searchItem)
     }
     const [dateType, setDateType] = useState('');
-    const [otherThing, setOtherThing] = useState('');
+    const [searchText, setSearchText] = useState('');
 
     return (
         <div className="search-container">
-            <input
-                   type="text"
-                   placeholder={'hi naomi'}
-                   value={otherThing}
-                   className="input-field"
-                   onChange={handleSearch}
-            />
             <p className="search-text">Binary Search</p>
             <p className="search-subtext">Find the perfect head Node for your linked list of dates!</p>
-            <select
+            <div className="row">
+                <input
+                   type="text"
+                   placeholder={'Enter some keywords for your date'}
+                   value={searchText}
+                   className="input-field"
+                   onInput={(e) => setSearchText(e.target.value)}
+                   onChange={handleSearch}
+                />
+                <select
                    value={dateType}
+                   onInput={(e) => setDateType(e.target.value)}
                    className="input-field dropdown"
-               >
+                >
                    <option value="">{'Enter your date type'}</option>
                    <option value="Movies">Movies</option>
                    <option value="CScore">CS Major-core</option>
                    <option value="engineering">Engineering</option>
                    <option value="bluemoon">Once in a Blue Moon</option>
-            </select>
+                </select>
+            </div>
             <div className="centered">
             <TaskBar page="SEARCH" />
             </div>
