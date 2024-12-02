@@ -52,9 +52,12 @@ function Login() {
               navigate('/profile');
             }
           }
+          else{
+            alert("Incorrect Username or Password. If you do not have an account please sign up!")
+          }
         } catch (err) {
-          console.error("An error occurred:", err);
           alert("An error occurred. Please try again.");
+          console.error("An error occurred:", err);
         }
       };
 
