@@ -24,7 +24,7 @@ function App() {
           {useLoginState() && (
            <>
              <Route path="/questionnaire" element={<Questionnaire />} />
-             <Route path="/profile" element={<Profile />} />
+             <Route path="/profile/:userId?" element={<Profile />} />
              <Route path="/profile_setup" element={<Profile_Setup />} />
              <Route path="/matches" element={<Matches />} />
              <Route path="/search" element={<Search />} />

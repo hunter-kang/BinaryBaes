@@ -6,7 +6,7 @@ import { wordsearch, categoryFilter} from '../controllers/dateIdeaController.js'
 const router = Router();
 
 //remove ensureAuthenticated for easier time on postman
-router.get('/profile', ensureAuthenticated, profile);
+router.get('/profile/:userId?', ensureAuthenticated, profile);
 router.post('/profilepost', ensureAuthenticated, profilepost);
 router.post('/questionnaire', ensureAuthenticated, questionnaire);
 router.post('/saveMatches', ensureAuthenticated, saveMatches)
