@@ -134,7 +134,7 @@ export default function Profile(){
                 </div>
             </div>
             <div className="centered">
-            <TaskBar page="SEARCH" />
+            <TaskBar page="PROFILE" />
             </div>
         </div>
     );
