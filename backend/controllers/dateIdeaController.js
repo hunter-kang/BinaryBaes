@@ -12,8 +12,6 @@ const wordsearch = async(req, res) =>{
          const filteredIdeas = datesIdeasOnly.filter(value => value.toLowerCase().includes(keyword.toLowerCase()));
 
          console.log("Date Ideas fetched:", filteredIdeas);
-         
-
 
         
         res.status(200).json({
