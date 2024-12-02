@@ -10,6 +10,7 @@
     padding: 2%;
     padding-top: 2%;
     margin: 0%;
+    overflow: auto;
 }
 
 .input-field {
@@ -21,7 +22,8 @@
     border: 1px solid #ccc;
     box-sizing: border-box;
     background-color: #eeeeee;
-    color: #595959
+    color: #595959;
+    height: 10vh;
 }
 
 .search-subtext{

@@ -25,17 +25,21 @@ export default function Search(){
                    onInput={(e) => setSearchText(e.target.value)}
                    onChange={handleSearch}
                 />
+                <button className = "button-design" type="submit">Search</button>
+            </div>
+            <div className="row">
                 <select
                    value={dateType}
                    onInput={(e) => setDateType(e.target.value)}
                    className="input-field dropdown"
                 >
-                   <option value="">{'Enter your date type'}</option>
+                   <option value="">Select your date type</option>
                    <option value="Movies">Movies</option>
                    <option value="CScore">CS Major-core</option>
                    <option value="engineering">Engineering</option>
                    <option value="bluemoon">Once in a Blue Moon</option>
                 </select>
+                <button className = "button-design" type="submit">Filter</button>
             </div>
             <div className="centered">
             <TaskBar page="SEARCH" />
