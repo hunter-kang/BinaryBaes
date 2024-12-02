@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import "../styles/Matches.css";
 import "../styles/Text.css";
 import TaskBar from '../components/TaskBar';
 import Connect_Card from '../components/Connect_Card';
 
-const handleConnectClick = (name) => {
-    console.log(`Matched with: ${name}`);
-};
 
 function Matches() {
+    const navigate = useNavigate();
     const [matches, setMatches] = useState([]);
-   
+    const handleConnectClick = (id) => { 
+        console.log(id)
+        let navigateLink = '/profile/' + id
+        navigate(navigateLink);
+    };
     useEffect(() => {
      const fetchMatches = async () => {
          const token = localStorage.getItem('token'); // Replace with how you store the token

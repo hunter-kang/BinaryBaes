@@ -149,10 +149,9 @@ const profile = async (req, res) => {
            });
        }
 
-
-       const userId = req.user._id;
-       console.log("User ID from JWT:", userId);
-
+       const otherId  = req.params.userId;
+       const userId = otherId || req.user?._id;
+       
 
        
        const user = await UserModel.findById(userId, 'email firstname lastname linkedin school location pronouns gender major employment salary height ethnicity education frugal age color lookingFor goingOutFrequency showerFrequency codingLanguage employmentStatus company');

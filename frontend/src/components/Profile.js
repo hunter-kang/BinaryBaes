@@ -1,13 +1,17 @@
 import { useState, useEffect } from 'react';
 import "../styles/Text.css";
 import "../styles/Profile.css";
+import { useParams, Navigate } from 'react-router-dom';
 import TaskBar from '../components/TaskBar';
 import { useNavigate } from 'react-router-dom';
 
 
-export default function Profile(){
-
-
+export default function Profile()
+{
+    const { userId } = useParams();
+    console.log("user id")
+    console.log(userId)
+    
    const [location, setLocation] = useState('');
    const [school, setSchool] = useState('');
    const [linkedin, setLinkedIn] = useState('');
@@ -36,6 +40,15 @@ export default function Profile(){
    const navigate = useNavigate();
   
    useEffect(() => {
+    let getLink;
+    
+        if (!userId) {
+          getLink = 'http://localhost:5555/user/profile';  // Default if no userId
+        } else {
+          getLink = 'http://localhost:5555/user/profile/' + userId;  // Construct link with userId
+        }
+        console.log("get request link")
+        console.log(getLink)
     const fetchProfile = async () => {
         const token = localStorage.getItem('token'); // Replace with how you store the token
        
@@ -46,7 +59,7 @@ export default function Profile(){
 
 
         try {
-            const response = await fetch('http://localhost:5555/user/profile', {
+            const response = await fetch(getLink, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`,  
