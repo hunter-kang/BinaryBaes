@@ -94,7 +94,10 @@ export default function Profile()
             setCodingLanguage(data.profile.codingLanguage || '');
             setEmploymentStatus(data.profile.employmentStatus || '');
             setCompany(data.profile.company || '');
+            setProfilePic(data.profile.profilePicture || '');
 
+            console.log("Fetched Profile Data:", data.profile);  // Log the entire profile object
+            console.log("Profile Pic Base64:", data.profile.profilePicture);  // Logs the base64 string
 
         } catch (error) {
             console.error('Error fetching profile:', error);
@@ -124,8 +127,8 @@ export default function Profile()
                     {profile.major ? <p className="info-text"> • {profile.firstname}.major = {profile.major}</p> : null}
                 </div>
                 <div className="img-container">
-                    {profilePic ? <img className="photo" src={profilePic} alt="profile picture failed to load"></img> : null}
-                    {profilePic ? <p className="png-text">.png</p> : null}
+                {profilePic ? <img className="photo" src={`${profilePic}`} alt="profile picture failed to load"></img> : null}
+                {profilePic ? <p className="png-text">.png</p> : null}
                 </div>
             </div>
             <p className="prompt-text">#All about me!</p>

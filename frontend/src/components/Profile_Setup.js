@@ -35,7 +35,8 @@ function Profile_Setup() {
    const [company, setCompany] = useState('');
 
 
-   const [profilePic, setProfilePic] = useState('');
+   const [profilePicture, setProfilePicture] = useState(null);
+   const [previewUrl, setPreviewUrl] = useState(null);
    const [profile, setProfile] = useState({});
    const navigate = useNavigate();
 
@@ -103,6 +104,7 @@ function Profile_Setup() {
             const token = localStorage.getItem('token');
             const url = "http://localhost:5555/user/profilepost";
             const profileData = {
+                profilePicture,
                 linkedin, 
                 school, 
                 location, 
@@ -123,6 +125,10 @@ function Profile_Setup() {
                 employmentStatus, 
                 company
             }
+
+            console.log("Profile Pic Data:", profilePicture);
+            console.log("Profile Data Upon Submission:", profileData);
+
             const response = await fetch(url, {
                 method: "POST",
                 headers: {
@@ -131,6 +137,7 @@ function Profile_Setup() {
                 },
                 body: JSON.stringify(profileData),
           });
+
             const result = await response.json();
             console.log('Response:', result);
         
@@ -146,6 +153,21 @@ function Profile_Setup() {
           alert("An error occurred. Please try again.");
         }
       };
+
+    const handleFileChange = (e) => {
+        const file = e.target.files[0]; // Get the first selected file
+        if (file) {
+            const reader = new FileReader();
+            
+            // Set up the FileReader to encode the file as base64
+            reader.onloadend = () => {
+                const base64String = reader.result
+                setProfilePicture(base64String);  // Store the base64-encoded image
+                setPreviewUrl(reader.result); // Set the preview URL
+            };
+            reader.readAsDataURL(file);  // Read the file as base64
+        }
+    };
 
    return (
        <div className="profile_setup-container">
@@ -173,10 +195,19 @@ function Profile_Setup() {
                    id="ProfilePicture"
                    style={{visibility:"hidden"}}
                    type={"file"}
-                   value = {profilePic}
-                   onChange={(e) => setProfilePic(e.target.value)}
+                   onChange={handleFileChange}
                />
-               {/* here, we should add a preview of the image if it was successfully uploaded */}
+
+               {/* Preview of the uploaded image */}
+               {previewUrl && (
+                    <div>
+                    <img
+                        src={previewUrl}
+                        alt="Profile Preview"
+                        style={{ width: '100px', height: '100px', objectFit: 'cover' }}
+                    />
+                    </div>
+                )}
 
 
                {/* Location Input */}

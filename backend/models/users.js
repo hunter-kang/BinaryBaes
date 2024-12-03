@@ -1,6 +1,7 @@
 import mongoose, { mongo } from "mongoose";
 
 const Schema = mongoose.Schema;
+
 const UserSchema = new Schema({
     firstname:{
         type: String,
@@ -99,11 +100,15 @@ const UserSchema = new Schema({
         type: String
     },
     matches: [
-    {
-      _id: { type: String, required: true },  // or String, depending on your id type
-      firstname: { type: String, required: true },
+        {
+        _id: { type: String, required: true },  // or String, depending on your id type
+        firstname: { type: String, required: true },
+        }
+    ],
+    profilePicture: { // Add this field to store the profile picture URL
+        type: String,
+        required: false
     }
-  ]
 })
 
 const UserModel = mongoose.model('auth', UserSchema)

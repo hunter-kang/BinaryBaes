@@ -51,6 +51,7 @@ const questionnaire = async(req, res) => {
        })
    }
 }
+
 const saveMatches = async (req, res) => {
     try {
         if (!req.user || !req.user._id) {
@@ -154,7 +155,7 @@ const profile = async (req, res) => {
        
 
        
-       const user = await UserModel.findById(userId, 'email firstname lastname linkedin school location pronouns gender major employment salary height ethnicity education frugal age color lookingFor goingOutFrequency showerFrequency codingLanguage employmentStatus company');
+       const user = await UserModel.findById(userId, 'email firstname lastname profilePicture linkedin school location pronouns gender major employment salary height ethnicity education frugal age color lookingFor goingOutFrequency showerFrequency codingLanguage employmentStatus company');
 
 
 
@@ -175,6 +176,7 @@ const profile = async (req, res) => {
                email: user.email,
                firstname: user.firstname,
                lastname: user.lastname,
+               profilePicture: user.profilePicture || '', // Include the profile picture
                linkedin: user.linkedin || '',
                school: user.school || '',
                location: user.location || '',
@@ -208,7 +210,7 @@ const profile = async (req, res) => {
 
 const profilepost = async(req, res) => {
     try{
-        const{linkedin, school, location, pronouns, gender, major, salary, height, ethnicity, education, frugal, age, color, lookingFor, goingOutFrequency, showerFrequency, codingLanguage, employmentStatus, company} = req.body;
+        const{linkedin, school, location, pronouns, gender, major, salary, height, ethnicity, education, frugal, age, color, lookingFor, goingOutFrequency, showerFrequency, codingLanguage, employmentStatus, company, profilePicture} = req.body;
  
  
         if (!req.user || !req.user._id) {
@@ -219,35 +221,51 @@ const profilepost = async(req, res) => {
  
  
         const userId = req.user._id;
+
+         // Check if profile picture is provided and validate base64 encoding
+         let updatedData = {
+            linkedin,
+            school,
+            location,
+            pronouns,
+            gender,
+            major,
+            salary,
+            height,
+            ethnicity,
+            education,
+            frugal,
+            age,
+            color,
+            lookingFor,
+            goingOutFrequency,
+            showerFrequency,
+            codingLanguage,
+            employmentStatus,
+            company
+        };
+
+        // Check if profilePicture is provided and valid, or default to empty string
+        if (profilePicture) {
+            const base64Regex = /^data:image\/(png|jpeg|jpg);base64,/;
+            if (base64Regex.test(profilePicture)) {
+                updatedData.profilePicture = profilePicture; // Save base64 image
+            } else {
+                return res.status(400).json({
+                    message: "Invalid base64 image format",
+                    success: false
+                });
+            }
+        } else {
+            updatedData.profilePicture = ""; // Default to empty string if not provided
+        }
+
         const updatedUser = await UserModel.findByIdAndUpdate(
             userId,
-            {
-                $set: {
-                    linkedin, 
-                    school, 
-                    location, 
-                    pronouns, 
-                    gender, 
-                    major, 
-                    salary, 
-                    height, 
-                    ethnicity, 
-                    education, 
-                    frugal, 
-                    age, 
-                    color, 
-                    lookingFor, 
-                    goingOutFrequency, 
-                    showerFrequency, 
-                    codingLanguage,
-                    employmentStatus, 
-                    company
-                }
-            },
+            { $set: updatedData },
             { new: true }
         );
- 
- 
+
         if (!updatedUser) {
             return res.status(404).json({ message: "User not found", success: false });
         }
