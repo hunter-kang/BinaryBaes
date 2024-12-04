@@ -161,7 +161,7 @@ function Profile_Setup() {
             
             // Set up the FileReader to encode the file as base64
             reader.onloadend = () => {
-                const base64String = reader.result
+                const base64String = reader.result;
                 setProfilePicture(base64String);  // Store the base64-encoded image
                 setPreviewUrl(reader.result); // Set the preview URL
             };

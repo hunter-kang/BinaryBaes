@@ -1,6 +1,7 @@
 import UserModel from '../models/users.js';
-import bcrypt from 'bcrypt'
-import jwt from 'jsonwebtoken'
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import defaultDog from './defaultImages/dog.json' assert { type: "json" };
 
 
 const questionnaire = async(req, res) => {
@@ -222,7 +223,15 @@ const profilepost = async(req, res) => {
  
         const userId = req.user._id;
 
-         // Check if profile picture is provided and validate base64 encoding
+         // Fetch the current user data
+         const existingUser = await UserModel.findById(userId);
+         if (!existingUser) {
+             return res.status(404).json({
+                 message: "User not found", success: false
+             });
+         }
+
+
          let updatedData = {
             linkedin,
             school,
@@ -247,15 +256,20 @@ const profilepost = async(req, res) => {
 
         // Check if profilePicture is provided and valid, or default to empty string
         if (profilePicture) {
-            const base64Regex = /^data:image\/(png|jpeg|jpg);base64,/;
+            const base64Regex = /^data:image\/(png|jpeg|jpg|heic);base64,/;
             if (base64Regex.test(profilePicture)) {
                 updatedData.profilePicture = profilePicture; // Save base64 image
+                console.log("\nNew profile picture:\n", profilePicture, "\n\n\n");
             } else {
                 return res.status(400).json({
                     message: "Invalid base64 image format",
                     success: false
                 });
             }
+        }
+        else {
+            updatedData.profilePicture = existingUser.profilePicture || defaultDog.dogData; // Fallback image
+            console.log("Preserving existing or fallback profile picture.");
         }
 
         const updatedUser = await UserModel.findByIdAndUpdate(
