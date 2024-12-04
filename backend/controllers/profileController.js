@@ -177,7 +177,7 @@ const profile = async (req, res) => {
                email: user.email,
                firstname: user.firstname,
                lastname: user.lastname,
-               profilePicture: user.profilePicture || '', // Include the profile picture
+               profilePicture: user.profilePicture || defaultDog.dogData, // Include the profile picture
                linkedin: user.linkedin || '',
                school: user.school || '',
                location: user.location || '',
