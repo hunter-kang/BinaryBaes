@@ -256,8 +256,6 @@ const profilepost = async(req, res) => {
                     success: false
                 });
             }
-        } else {
-            updatedData.profilePicture = ""; // Default to empty string if not provided
         }
 
         const updatedUser = await UserModel.findByIdAndUpdate(
