@@ -87,6 +87,7 @@ function Profile_Setup() {
                setCodingLanguage(data.profile.codingLanguage || '');
                setEmploymentStatus(data.profile.employmentStatus || '');
                setCompany(data.profile.company || '');
+               setProfilePicture(data.profilePicture || '');
 
 
            } catch (error) {
@@ -104,7 +105,7 @@ function Profile_Setup() {
             const token = localStorage.getItem('token');
             const url = "http://localhost:5555/user/profilepost";
             const profileData = {
-                profilePicture,
+                profilePicture: profilePicture || profile.profilePicture,
                 linkedin, 
                 school, 
                 location, 
