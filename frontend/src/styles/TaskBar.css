@@ -5,7 +5,7 @@
 
 .rectangle {
     display: flex;
-    width: 100%;
+    width: 1000px;
     height: 100px;
     background-color: #eeeeeeff;
     border: 2px solid #595959;

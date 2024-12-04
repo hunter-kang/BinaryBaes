@@ -29,24 +29,24 @@ const TaskBar = ({page}) => {
 
     return (
       <div className="task-bar" style={{ marginTop: 60 }}>
-        <div className="small-text" style={{ marginRight: 1250 }}>/Users/{page}</div>
+        <div className="small-text" style={{ marginRight: "100%" }}>/Users/{page}</div>
         <div className="rectangle">
-          <button className="button-text-design" onClick={() => taskBarClick("home")} style={{ marginLeft: "7%" }}>
+          <button className="button-text-design" onClick={() => taskBarClick("home")} style={{ marginLeft: "5%" }}>
               HOME
           </button>
-          <button className="button-text-design" onClick={() => taskBarClick("profile")} style={{ marginLeft: "10%" }}>
+          <button className="button-text-design" onClick={() => taskBarClick("profile")} style={{ marginLeft: "9%" }}>
               PROFILE
           </button>
-          <button className="button-text-design" onClick={() => taskBarClick("matches")} style={{ marginLeft: "10%" }}>
+          <button className="button-text-design" onClick={() => taskBarClick("matches")} style={{ marginLeft: "9%" }}>
               MATCHES
           </button>
-          <button className="button-text-design" onClick={() => taskBarClick("settings")} style={{ marginLeft: "10%" }}>
+          <button className="button-text-design" onClick={() => taskBarClick("settings")} style={{ marginLeft: "9%" }}>
               SETTINGS
           </button>
-          <button className="button-text-design" onClick={() => taskBarClick("search")} style={{ marginLeft: "10%" }}>
+          <button className="button-text-design" onClick={() => taskBarClick("search")} style={{ marginLeft: "9%" }}>
               SEARCH
           </button>
-          <button className="button-text-design" onClick={handleLogout} style={{ marginLeft: "10%" }}>LOGOUT</button>
+          <button className="button-text-design" onClick={handleLogout} style={{ marginLeft: "9%" }}>LOGOUT</button>
         </div>
       </div>
     );
