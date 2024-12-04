@@ -63,6 +63,7 @@ function Home() {
                 _id: users.data[currentIndex]._id,  // Save only the MongoDB id (or user id)
                 firstname: users.data[currentIndex].firstname  // Save the first name
               };
+            console.log("picture", users.data[currentIndex].profilePicture)
             console.log("match");
             console.log(users.data[currentIndex]._id);
             try {
