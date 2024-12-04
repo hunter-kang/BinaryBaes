@@ -98,7 +98,7 @@ export default function Search() {
             <div className="results-container">
                 {error && <p className="error-text">{error}</p>}
                 {searchResults.length > 0 ? (
-                    <ul>
+                    <ul className="results-list">
                         {searchResults.map((result, index) => (
                             <li key={index}>{result.dateIdea || result}</li>
                         ))}

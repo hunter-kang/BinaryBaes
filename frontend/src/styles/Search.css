@@ -13,6 +13,33 @@
     overflow: auto;
 }
 
+.results-container {
+    font-family: 'Courier New';
+    font-weight: bold;
+    color: #757575;
+    font-size: 28.0px;
+    margin: 0px;
+    margin-bottom: 5px;
+    padding: 20px;
+    text-align: left;
+    text-wrap: wrap;
+    
+}
+
+.results-list{
+    list-style-type: "\2610  ";
+    border-width: 3;
+    border-radius: 40px;
+    border-style: dashed;
+    border-color: rgb(5, 95, 38);
+}
+
+.results-list li {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 15px;
+}
+
 .input-field {
     margin-bottom: 15px;
     padding: 10px;

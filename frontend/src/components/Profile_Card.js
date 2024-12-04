@@ -9,7 +9,7 @@ const Profile_Card = ( {profile, onMatchClick}) => {
       <div className="profile-card" style={{ marginTop: 60 }}>
         <div className="rectangle-profile">
             {/* display_profile_image_here */}
-            <img
+            <img className="photo"
           src={profile.profilePicture}
           alt={`${profile.firstname}'s Profile`}
           />
