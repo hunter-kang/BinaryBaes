@@ -113,7 +113,7 @@ const home = async(req, res) =>{
         console.log("User ID from JWT:", userId);
         //no document matches
         //return a list of users and using find to get multiple entries
-        const otherUsers = await UserModel.find( { _id: { $ne: userId } }, 'firstname lastname age height school employmentStatus');
+        const otherUsers = await UserModel.find( { _id: { $ne: userId } }, 'firstname lastname age height school employmentStatus profilePicture');
         console.log("otherUsers" , otherUsers)
 
         if (!otherUsers){
