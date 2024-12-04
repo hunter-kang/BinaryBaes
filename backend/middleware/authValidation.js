@@ -2,10 +2,18 @@ import Joi from 'joi'
 
 const signupValidation = (req, res, next) =>{
     const schema = Joi.object({
-        firstname: Joi.string().min(3).max(100).required(),
-        lastname: Joi.string().min(3).max(100).required(),
-        email: Joi.string().email().required(),
-        password: Joi.string().min(4).max(100).required()
+        firstname: Joi.string()
+        .min(3)
+        .max(100)
+        .pattern(new RegExp(/^[A-Za-z]+$/))
+        .required(),
+    lastname: Joi.string()
+        .min(3)
+        .max(100)
+        .pattern(new RegExp(/^[A-Za-z]+$/))
+        .required(),
+    email: Joi.string().email().required(),
+    password: Joi.string().min(4).max(100).required()
     })
     const {error} = schema.validate(req.body);
     if (error){
