@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import "../styles/TaskBar.css";
 import "../styles/Text.css";
 
 const TaskBar = ({page}) => {
     const navigate = useNavigate();
-
+    const location = useLocation();
     function handleLogout() {
 
         fetch("http://localhost:5555/auth/logout") 
@@ -17,9 +17,12 @@ const TaskBar = ({page}) => {
           });
       
     }
-
+    const defaultIndex = location.state !== null && location.state !== undefined ? location.state : 0;
+    console.log("defaultIndex", defaultIndex);
+    const [currentIndex, setCurrentIndex] = useState(defaultIndex);
+    
     const taskBarClick = (buttonName) => {
-        if (buttonName === "home") navigate('/Home');
+        if (buttonName === "home") navigate('/Home', { state: currentIndex });
         else if (buttonName === "profile") navigate('/Profile');
         else if (buttonName === "matches") navigate('/Matches');
         else if (buttonName === "settings") navigate('/Profile_Setup');
