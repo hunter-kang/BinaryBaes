@@ -7,7 +7,7 @@ const Profile_Card = ( {profile, onMatchClick}) => {
     console.log(profile.firstname)
     return (
       <div className="profile-card" style={{ marginTop: 60 }}>
-        <div className="rectangle-profile">
+        <button className="rectangle-profile" onClick={() => onMatchClick("Profile")}>
             {/* display_profile_image_here */}
             <img className="photo"
           src={profile.profilePicture}
@@ -19,9 +19,8 @@ const Profile_Card = ( {profile, onMatchClick}) => {
             <div>Height: {profile.height || 'N/A'}</div> 
             <div>School: {profile.school || 'N/A'}</div>
             <div>Employment: {profile.employmentStatus}</div>
-            {/* backend_insert_here */}
           </div>
-        </div>
+        </button>
         <button className="button-design" onClick={() => onMatchClick("0")}>
             0
           </button>

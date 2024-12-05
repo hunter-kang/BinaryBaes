@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import "../styles/Home.css";
 import "../styles/Text.css";
 import TaskBar from '../components/TaskBar';
 import Profile_Card from '../components/Profile_Card';
 
 function Home() {
+    const navigate = useNavigate();
+    const location = useLocation();
     // backend logic to load in profiles here suggest doing random
     const [users, setUsers] = useState([])
     const [loading, setLoading] = useState(true);
+    const[prevUser, setPrevUser] = useState(String);
 
     const fetchUsers = async () =>{
         try{
@@ -53,11 +57,22 @@ function Home() {
         { firstName: "WoodStock", age: "Unknown", height: "0.25ft", school: "Unschool", employmentStatus: "Unemployed" },
         { Name: "Clifford", Age: "50", Height: "25ft", School: "idk", Employment: "Unemployed"}
     ]);
+    console.log("location state")
+    console.log(location.state)
+    const defaultIndex = location.state ? location.state : 0;
+    console.log("defaultIndex")
+    console.log(defaultIndex)
     const [isAnimating, setIsAnimating] = useState(false);
-    const [currentIndex, setCurrentIndex] = useState(0);
+    const [currentIndex, setCurrentIndex] = useState(defaultIndex);
 
     const matchClick = async (buttonName) => {
         setIsAnimating(true);
+        if (buttonName == "Profile") {
+            console.log("profile button getting clicked")
+            let navigateLink = '/profile/' + users.data[currentIndex]._id
+            console.log(navigateLink, currentIndex)
+            navigate(navigateLink, { state: currentIndex });
+        }
         if (buttonName === "1"){
             const matchData = {
                 _id: users.data[currentIndex]._id,  // Save only the MongoDB id (or user id)
