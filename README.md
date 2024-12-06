@@ -8,6 +8,7 @@
     - mongoose
     - joi 
     - cors
+    - react-scripts
 # How to run on local environment
 1) Other than the dependecies listed above, ensure you have all dependencies up to date with the ones in the package.json in frontend and backend
 2) Open a terminal and from the root directory cd into backend. Run npm run dev
